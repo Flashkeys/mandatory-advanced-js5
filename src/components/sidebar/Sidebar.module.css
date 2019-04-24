@@ -1,0 +1,25 @@
+.sidebarContainer {
+    background-color: white;
+    border: 1px solid #303030;
+    width: 20%;
+    height: 100vh;
+    padding: 20px;
+}
+.sidebarH3 {
+    color: #303030;
+}
+.sidebarLink {
+    text-decoration: none;
+    color: orangered;
+}
+.sidebarLinks:hover {
+    color: blue;
+    border-bottom: 1px solid blue;
+}
+.sidebarMain {
+    margin-left: 20%;
+}
+.sidebarLinks {
+    display: flex;
+    flex-direction: column;
+}
