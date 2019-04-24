@@ -1,0 +1,10 @@
+.topBar {
+  height: 200px;
+  width: 100%;
+}
+
+.mainContainer {
+  height: calc(100vh - 200px);
+  background: gray;
+  width: 100%;
+}
