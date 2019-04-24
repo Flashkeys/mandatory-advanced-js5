@@ -5,14 +5,16 @@ const Sidebar = () => {
 
 
   return (
-    <div className={styles.sidebarContainer}>
-      <div className={styles.sidebarMain}>
-        <h3 className={styles.sidebarH3}>Main</h3>
-        <div className={styles.sidebarLinks}>
-          <Link to={`/Temp`} className={styles.sidebarLink}>Temp</Link>
-          <Link to={`/Temp`} className={styles.sidebarLink}>Example</Link>
-          <Link to={`/Temp`} className={styles.sidebarLink}>Testing</Link>
-          <Link to={`/Temp`} className={styles.sidebarLink}>ö-råd</Link>
+    <div className={styles.container}>
+      <Link to={`/`} className={styles.h1}>Home</Link>
+      <br></br>
+      <div className={styles.main}>
+        <h3 className={styles.h3}>Main</h3>
+        <div className={styles.Links}>
+          <Link to={`/Temp`} className={styles.link}>Temp</Link>
+          <Link to={`/Temp`} className={styles.link}>Example</Link>
+          <Link to={`/Temp`} className={styles.link}>Testing</Link>
+          <Link to={`/Temp`} className={styles.link}>ö-råd</Link>
         </div>
       </div>
     </div>

@@ -1,25 +1,32 @@
-.sidebarContainer {
+.container {
     background-color: white;
-    border: 1px solid #303030;
+    border-right: 1px solid #303030;
     width: 20%;
     height: 100vh;
     padding: 20px;
 }
-.sidebarH3 {
+.h3 {
     color: #303030;
 }
-.sidebarLink {
+.link {
     text-decoration: none;
     color: orangered;
 }
-.sidebarLinks:hover {
+.link:hover {
     color: blue;
     border-bottom: 1px solid blue;
 }
-.sidebarMain {
+.main {
     margin-left: 20%;
 }
-.sidebarLinks {
+.links {
     display: flex;
     flex-direction: column;
+    margin-left: 15px;
+}
+.h1 {
+    text-decoration: none;
+    font-size: 30px;
+    color: #303030;
+    font-family: 'Courier New', Courier, monospace;
 }
