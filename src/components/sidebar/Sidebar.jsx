@@ -14,7 +14,7 @@ const Sidebar = () => {
           <Link to={`/Temp`} className={styles.link}>Temp</Link>
           <Link to={`/Temp`} className={styles.link}>Example</Link>
           <Link to={`/Temp`} className={styles.link}>Testing</Link>
-          <Link to={`/Temp`} className={styles.link}>ö-råd</Link>
+          <Link to={`/Temp`} className={styles.link}>ö-råddd</Link>
         </div>
       </div>
     </div>
