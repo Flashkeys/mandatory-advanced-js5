@@ -15,11 +15,9 @@
     color: orangered;
     border-bottom: 1px solid white;
     margin-top: 10px;
-    max-width: auto;
 }
 .link:hover {
     color: blue;
-    border-bottom: 1px solid blue;
 }
 .main {
     margin-left: 20%;
