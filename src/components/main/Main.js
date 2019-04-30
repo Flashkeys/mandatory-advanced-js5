@@ -4,9 +4,16 @@ import styles from "./Main.module.css"
 function Main() {
   return (
     <div>
-      <div className={styles.topBar}>x</div>
+      <div className={styles.topBar}>
+        <div className={styles.homeText}>
+          <h3>Home</h3>
+        </div>
+        <div>
+          <input type="text" />
+        </div>
+      </div>
       <div className={styles.mainContainer}>
-      x
+        x
       </div>
     </div>
   )
