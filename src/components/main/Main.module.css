@@ -11,3 +11,20 @@
 .homeText {
   font-family: "Asap";
 }
+.inputSearch {
+  display: flex;
+  margin-left: 30px;
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 190px;
+  padding: 3px;
+}
+
+.inputSearchInput {
+  border: none;
+  outline: none;
+}
+
+.iconSearch {
+  padding: 5px;
+}
