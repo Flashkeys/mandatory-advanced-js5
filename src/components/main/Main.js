@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from "./Main.module.css"
+import styles from "./Main.module.css" 
 
 function Main() {
   return (
@@ -9,7 +9,7 @@ function Main() {
           <h3>Home</h3>
         </div>
         <div>
-          <input type="text" />
+        <i class="icon ion-md-heart"></i>
         </div>
       </div>
       <div className={styles.mainContainer}>
