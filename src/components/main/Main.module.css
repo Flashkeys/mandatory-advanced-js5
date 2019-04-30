@@ -8,3 +8,6 @@
   width: calc(100vw - 300px);
   background: gray;
 }
+.homeText {
+  font-family: "Asap";
+}
