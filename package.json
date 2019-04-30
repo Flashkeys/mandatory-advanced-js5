@@ -4,9 +4,9 @@
   "private": true,
   "dependencies": {
     "dropbox": "^4.0.17",
-    "ionicons": "^4.5.6",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-ionicons": "^3.0.1",
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.0"
   },
