@@ -31,3 +31,7 @@
 .logo {
     width: 100%;
 }
+.storageHeader {
+    border: 1px solid black;
+    bottom: 0;
+}

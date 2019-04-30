@@ -20,6 +20,10 @@ const Sidebar = () => {
           <Link to={`/Temp`} className={styles.link}>Happy</Link>
         </div>
       </div>
+      <div className={styles.storageHeader}>
+        <p> / 2 GB</p>
+        <progress id="file" max="100" value="70"> 70% </progress>
+      </div>
     </div>
   )
 }
