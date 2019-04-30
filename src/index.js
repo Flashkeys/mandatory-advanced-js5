@@ -11,6 +11,8 @@ const Index = () => {
     <Router>
       <Route exact path="/" render={() => <Home/>} />
       <Route path="/temp" render={() => <Temp/>} />
+      
+    <script src="https://unpkg.com/ionicons@4.2.2/dist/ionicons.js"></script>
     </Router>
   )
 }
