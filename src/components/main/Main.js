@@ -1,5 +1,7 @@
 import React from 'react';
+import { Switch, Route } from "react-router-dom";
 import styles from "./Main.module.css" 
+import Temp from "../../Temp";
 
 function Main() {
   return (
@@ -13,10 +15,16 @@ function Main() {
         </div>
       </div>
       <div className={styles.mainContainer}>
-        x
       </div>
     </div>
   )
 }
+
+function Test() {
+  return (
+    <p>Test</p>
+  )
+}
+
 
 export default Main;

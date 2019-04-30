@@ -1,17 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Switch, Route } from "react-router-dom";
 import './index.css';
-import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from './Home';
-import Temp from './Temp';
 
 const Index = () => {
   
   return (
-    <Router>
-      <Route exact path="/" render={() => <Home/>} />
-      <Route path="/temp" render={() => <Temp/>} />
-    </Router>
+    <Switch>
+      <Route exact path="/login" render={() => <Login />} />
+      <Route path="/" render={() => <Home />} />
+    </Switch>
+  )
+}
+
+const Login = () => {
+  return (
+    <p>Login</p>
   )
 }
 
