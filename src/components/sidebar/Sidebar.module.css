@@ -1,0 +1,31 @@
+.container {
+    box-sizing: border-box;
+    background-color: white;
+    border-right: 1px solid #303030;
+    width: 300px;
+    height: 100vh;
+    padding: 20px;
+}
+.h3 {
+    color: #303030;
+    margin-bottom: 5px;
+}
+.link {
+    text-decoration: none;
+    color: orangered;
+}
+.link:hover {
+    color: blue;
+    border-bottom: 1px solid blue;
+}
+.main {
+    margin-left: 20%;
+}
+.Links {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+}
+.logo {
+    width: 100%;
+}

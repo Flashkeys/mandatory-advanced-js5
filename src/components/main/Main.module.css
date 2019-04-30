@@ -1,0 +1,13 @@
+.topBar {
+  height: 150px;
+  width: calc(100vw - 300px);
+}
+
+.mainContainer {
+  height: calc(100vh - 150px);
+  width: calc(100vw - 300px);
+  background: gray;
+}
+.homeText {
+  font-family: "Asap";
+}
