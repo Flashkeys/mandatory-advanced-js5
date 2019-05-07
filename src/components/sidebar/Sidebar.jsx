@@ -18,6 +18,7 @@ const Sidebar = () => {
           <Link to={`/Temp`} className={styles.link}>Example</Link>
           <Link to={`/Temp`} className={styles.link}>Testing</Link>
           <Link to={`/Temp`} className={styles.link}>ö-råd</Link>
+          <Link to={`/Temp`} className={styles.link}>Login</Link>
         </div>
       </div>
     </div>

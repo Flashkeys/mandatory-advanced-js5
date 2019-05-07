@@ -1,17 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import styles from './Home.module.css'
+import { Dropbox } from 'dropbox';
+const CLIENT_ID = '2k9z1293u11it1b';
+
 const Login = () => {
-
-
+    const dbx = new Dropbox({
+        clientId: CLIENT_ID,
+        fetch: fetch,
+    })
     return (
-        <div>
-            <div className={styles.sidebarContainer}>
-                <h3 className={styles.sidebarH3}>main</h3>
-                <Link to={`/Temp`}>Temp</Link>
-                <p>test <p/>
+        <>
+            <div className="login">
+                <a href={dbx.getAuthenticationUrl('http://localhost:3000/auth')}><button>Login</button></a>
             </div>
-        </div>
+        </>
     )
 }
-export default Login
+
+export default Login;
