@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from './Home.module.css';
-import Sidebar from './components/sidebar/Sidebar';
-import Main from "./components/main/Main";
-import Login from './components/authorization/login'
-import Auth from './components/authorization/auth';
+import styles from './css/Home.module.css';
+import Sidebar from './Sidebar';
+import Main from "./Main";
+import Login from './Login'
+import Auth from './Auth';
 const Home = () => {
 
 

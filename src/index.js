@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Switch, Route } from "react-router-dom";
 import './index.css';
-import Home from './Home';
+import Home from './components/Home';
 
 const Index = () => {
   

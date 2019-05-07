@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Switch, Route } from "react-router-dom";
-import styles from "./Main.module.css" 
-import Temp from "../../Temp";
+import styles from "./css/Main.module.css" 
+import Temp from "../Temp";
 import Dropbox from 'dropbox'
-import Card from "../cards/Card";
+import Card from "./Card";
 
 
 const dbx = new Dropbox.Dropbox({ accessToken: "EC36sasa05AAAAAAAAAADk0wlkmQPTUjQ-64Ts_4XAoZCHCL6OO9freskWuKV2Ts" });
