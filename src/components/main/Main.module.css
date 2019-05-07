@@ -6,7 +6,11 @@
 .mainContainer {
   height: calc(100vh - 150px);
   width: calc(100vw - 300px);
-  background: gray;
+  background: lightgray;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;  
 }
 .homeText {
   font-family: "Asap";

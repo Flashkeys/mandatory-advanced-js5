@@ -1,0 +1,19 @@
+.newCard {
+	width: 200px;
+	height: 250px;
+	margin: 5px;
+	padding: 5px;
+	background-color: white;
+	text-align: center;
+	border-radius: 5px;
+}
+.thumbnail {
+	width: 200px;
+	height: 150px;
+}
+.fileName {
+	font-weight: bold;
+}
+.timestamp {
+	color: grey;
+}

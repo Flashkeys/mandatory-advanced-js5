@@ -1,9 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Switch, Route } from "react-router-dom";
 import styles from "./Main.module.css" 
 import Temp from "../../Temp";
+import Container from "../cards/Container"
+import Dropbox from 'dropbox'
+import Card from "../cards/Card";
+
+
+const dbx = new Dropbox.Dropbox({ accessToken: "EC36sasa05AAAAAAAAAADk0wlkmQPTUjQ-64Ts_4XAoZCHCL6OO9freskWuKV2Ts" });
 
 function Main() {
+  const [entries, updateEntries] = useState([]);
+
+  useEffect(() => {
+    dbx.filesListFolder({ path: "" })
+      .then((res) => {
+        console.log(res);
+        updateEntries(res.entries);
+      })
+  }, []);
+
+
   return (
     <div>
       <div className={styles.topBar}>
@@ -20,6 +37,17 @@ function Main() {
         </div>
       </div>
       <div className={styles.mainContainer}>
+        
+        {entries.map((entry) => (
+          <Card 
+            entry={entry}
+            name={entry.name}
+            src="https://picsum.photos/200/150"
+            id={entry.id}
+            server_modified={entry.server_modified}
+          />
+        ))}
+        
       </div>
     </div>
   )
