@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Switch, Route } from "react-router-dom";
 import styles from "./Main.module.css" 
 import Temp from "../../Temp";
-import Container from "../cards/Container"
 import Dropbox from 'dropbox'
 import Card from "../cards/Card";
 

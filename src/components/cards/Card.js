@@ -10,6 +10,10 @@ const Card = (props) => {
       return props.src
     }
   }
+
+  function getThumbnail () {
+    
+  }
   
   return( // img, filename, tag, server_modified, id
     <div className={styles.newCard}>
