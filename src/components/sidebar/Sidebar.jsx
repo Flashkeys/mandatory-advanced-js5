@@ -17,9 +17,17 @@ const Sidebar = () => {
           <Link to={`/Temp`} className={styles.link}>Temp</Link>
           <Link to={`/Temp`} className={styles.link}>Example</Link>
           <Link to={`/Temp`} className={styles.link}>Testing</Link>
+<<<<<<< HEAD
           <Link to={`/Temp`} className={styles.link}>ö-råd</Link>
           <Link to={`/Temp`} className={styles.link}>Login</Link>
+=======
+          <Link to={`/Temp`} className={styles.link}>Happy</Link>
+>>>>>>> acccfc42f2ec80cf29d825eea98371106ffb925a
         </div>
+      </div>
+      <div className={styles.storageHeader}>
+        <p> / 2 GB</p>
+        <progress id="file" max="100" value="70"> 70% </progress>
       </div>
     </div>
   )
