@@ -10,7 +10,7 @@ const Index = () => {
   
   return (
     <Router>
-      {/* <Route  path="/" render={() => <Home/>} /> */}
+      <Route  path="/" render={() => <Home/>} />
       <Route path="/temp" render={() => <Temp/>} />
       <Route exact path="/" render={() => <Login/>} />
     <script src="https://unpkg.com/ionicons@4.2.2/dist/ionicons.js"></script>
