@@ -1,13 +1,22 @@
 import React from 'react';
 import styles from './css/Card.module.css';
+import Moment from 'moment';
 
 const Card = (props) => {
 
   function isFolder(tag) {
     if (tag === "folder") {
-      return "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-blue-512.png";
+      return "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLfDzP9UsOfVcePDGDEmNKNT9Cz7rhBw0QM-GmzTH7bDxfhMZ7TA";
     } else {
       return props.src
+    }
+  }
+
+  function timeCheck(time) {
+    if (time === undefined) {
+      return "";
+    } else {
+      return Moment(time, "YYYY-MM-DDThh:mm:ssZ").fromNow()
     }
   }
 
@@ -20,10 +29,13 @@ const Card = (props) => {
     {console.log(props)}
       <img className={styles.thumbnail} src={isFolder(props.entry[".tag"])} />
       <p className={styles.fileName}> {props.name} </p>
-      <p className={styles.timestamp}> {props.server_modified}</p>
+      <p className={styles.timestamp}> {timeCheck(props.server_modified)}</p>
 
     </div>
   )
 }
 
 export default Card
+
+//"2019-05-07T08:23:36Z"
+//"YYYY-MM-DD?hh:mm:ss?"

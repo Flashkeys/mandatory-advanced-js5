@@ -1,7 +1,6 @@
 .container {
     box-sizing: border-box;
     background-color: white;
-    border-right: 1px solid #303030;
     width: 300px;
     height: 100vh;
     padding: 20px;
@@ -12,12 +11,12 @@
 }
 .link {
     text-decoration: none;
-    color: orangered;
+    color: #303030;
     border-bottom: 1px solid white;
-    margin-top: 10px;
+    margin-top: 2px;
 }
 .link:hover {
-    color: blue;
+    color: #50808E;
 }
 .main {
     margin-left: 20%;

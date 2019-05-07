@@ -8,8 +8,8 @@ const Index = () => {
   
   return (
     <Switch>
-      <Route exact path="/login" render={() => <Login />} />
       <Route path="/" render={() => <Home />} />
+      <Route exact path="/login" render={() => <Login />} />
     </Switch>
   )
 }

@@ -5,12 +5,11 @@ import Sidebar from './Sidebar';
 import Main from "./Main";
 import Login from './Login'
 import Auth from './Auth';
-const Home = () => {
 
+const Home = () => {
 
     return (
         <div className={styles.homeContainer}>
-        <p>test</p>
             <Sidebar />
             <Main />
             <Login />
