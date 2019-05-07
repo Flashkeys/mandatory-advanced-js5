@@ -6,8 +6,7 @@ import Dropbox from 'dropbox'
 import Card from "./Card";
 import { token$ } from "./store.js";
 
-let token = token$.value;
-const dbx = new Dropbox.Dropbox({ accessToken: "" });
+const dbx = new Dropbox.Dropbox({ accessToken: token$.value });
 
 function Main() {
   const [entries, updateEntries] = useState([]);
