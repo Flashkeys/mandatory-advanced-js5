@@ -5,6 +5,7 @@ import Sidebar from './Sidebar';
 import Main from "./Main";
 import Login from './Login'
 import Auth from './Auth';
+import { token$ } from "./store";
 
 const Home = () => {
 
@@ -12,7 +13,7 @@ const Home = () => {
         <div className={styles.homeContainer}>
             <Sidebar />
             <Main />
-            <Login />
+            {!token$.value ? <Login /> : null}
         </div>
     )
 }

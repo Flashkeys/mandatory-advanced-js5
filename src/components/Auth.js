@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { updateToken } from './store.js'
 import { Link, Redirect } from "react-router-dom";
+import parseQueryString from "./utils";
+
 const Auth = () => {
     const [isAuthenticated, updateisAuthenticated] = useState(false)
     useEffect(() => {
-        const hash = window.location.hash.access_token;
-        console.log(hash);
         updateisAuthenticated(true)
-        updateToken(hash)
     }, [])
 
     if (isAuthenticated) {
+        const hash = parseQueryString(window.location.hash).access_token;
+        console.log(hash);
+        updateToken(hash);
         return <Redirect to='/' />
     }
     return (
