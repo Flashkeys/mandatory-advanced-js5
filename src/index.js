@@ -10,9 +10,9 @@ const Index = () => {
   
   return (
     <Switch>
-      <Route exact path="/login" render={() => <Login />} />
-      <Route exact path="/auth" render={() => <Auth />} />
-      <Route path="/" render={() => <Home />} />
+      <Route path="/home" render={() => <Home />} />
+      <Route path="/" render={() => <Login />} />
+      <Route path="/auth" render={() => <Auth />} />     
     </Switch>
   )
 }

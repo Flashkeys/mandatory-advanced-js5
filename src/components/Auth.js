@@ -13,7 +13,7 @@ const Auth = () => {
         const hash = parseQueryString(window.location.hash).access_token;
         console.log(hash);
         updateToken(hash);
-        return <Redirect to='/' />
+        return <Redirect to='/home' />
     }
     return (
         <>
