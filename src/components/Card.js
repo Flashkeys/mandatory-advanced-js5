@@ -30,7 +30,7 @@ const Card = (props) => {
     <div className={styles.newCard}>
     {console.log(props)}
       <img className={styles.thumbnail} src={isFolder(props.entry[".tag"])} alt="" />
-      <Link to={currentPath + props.entry.path_lower}><p className={styles.fileName}> {props.name} </p></Link>
+      <Link to={"/home" + props.entry.path_lower}><p className={styles.fileName}> {props.name} </p></Link>
       <p className={styles.timestamp}> {timeCheck(props.server_modified)}</p>
 
     </div>
