@@ -10,8 +10,7 @@ const Index = () => {
   
   return (
     <Switch>
-      <Route exact path="/home/" component={Home} />
-      <Route path="/home/:path" component={Home} />
+      <Route path="/home/" component={Home} />
       <Route exact path="/" render={() => <Login />} />
       <Route path="/auth" render={() => <Auth />} />     
     </Switch>

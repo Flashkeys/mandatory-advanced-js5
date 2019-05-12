@@ -11,20 +11,24 @@ function Main(match) {
   const dbx = new Dropbox.Dropbox({ accessToken: token$.value });
 
   useEffect(() => {
-  if (match.params.path) {
-    const pathName = match.url.substring(5); 
-      dbx.filesListFolder({ path: pathName })
+  if (window.location.pathname !== match.url) { // Kollar om sökvägen inte är match.url ("/home/" eller "/home"), dvs att man går djupare
+
+    // Vi behöver bygga en snyggare funktion som hanterar urler bättre.
+    // Har just nu problem med mapp-namn som innehåller mellanslag, där URLen blir "/mapp/mapp%20med%20mellanslag/"
+    // I övrigt funkar det som tänkt nu.
+    const pathName = window.location.pathname.substring(5); // Städar bort "/home" ur URLen
+      dbx.filesListFolder({ path: pathName }) 
         .then((res) => {
-          console.log(match);
+          console.log(pathName);
           updateEntries(res.entries);
         })
-    } else {
+    } else { // Om det är /home eller /home/ så hämtas root här
       dbx.filesListFolder({ path: "" })
         .then((res) => {
           updateEntries(res.entries);
         })
     }
-  }, []);
+  }, [window.location.pathname]);
 
   const logOut = () => {
     updateToken(null);

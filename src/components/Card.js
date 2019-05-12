@@ -1,8 +1,10 @@
 import React from 'react';
 import styles from './css/Card.module.css';
 import Moment from 'moment';
+import { Link } from "react-router-dom";
 
 const Card = (props) => {
+  const currentPath = window.location.pathname;
 
   function isFolder(tag) {
     if (tag === "folder") {
@@ -27,8 +29,8 @@ const Card = (props) => {
   return( // img, filename, tag, server_modified, id
     <div className={styles.newCard}>
     {console.log(props)}
-      <img className={styles.thumbnail} src={isFolder(props.entry[".tag"])} />
-      <p className={styles.fileName}> {props.name} </p>
+      <img className={styles.thumbnail} src={isFolder(props.entry[".tag"])} alt="" />
+      <Link to={currentPath + props.entry.path_lower}><p className={styles.fileName}> {props.name} </p></Link>
       <p className={styles.timestamp}> {timeCheck(props.server_modified)}</p>
 
     </div>
