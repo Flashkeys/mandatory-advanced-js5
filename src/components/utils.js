@@ -1,5 +1,5 @@
-export default function parseQueryString(str) {
-  var ret = Object.create(null);
+export default function parseQueryString(str) { // Används till Auth.js
+  let ret = Object.create(null);
 
   if (typeof str !== 'string') {
     return ret;
@@ -12,11 +12,11 @@ export default function parseQueryString(str) {
   }
 
   str.split('&').forEach(function (param) {
-    var parts = param.replace(/\+/g, ' ').split('=');
+    let parts = param.replace(/\+/g, ' ').split('=');
     // Firefox (pre 40) decodes `%3D` to `=`
     // https://github.com/sindresorhus/query-string/pull/37
-    var key = parts.shift();
-    var val = parts.length > 0 ? parts.join('=') : undefined;
+    let key = parts.shift();
+    let val = parts.length > 0 ? parts.join('=') : undefined;
 
     key = decodeURIComponent(key);
 
@@ -34,4 +34,9 @@ export default function parseQueryString(str) {
   });
 
   return ret;
+}
+
+export function breadCrumbs(path) {
+  
+  
 }

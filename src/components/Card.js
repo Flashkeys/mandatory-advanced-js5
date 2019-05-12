@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './css/Card.module.css';
 import Moment from 'moment';
+import { Link } from "react-router-dom";
 
 const Card = (props) => {
 
@@ -20,15 +21,15 @@ const Card = (props) => {
     }
   }
 
-  function getThumbnail () {
+  /* function getThumbnail () {
     
-  }
+  } */
   
   return( // img, filename, tag, server_modified, id
     <div className={styles.newCard}>
     {console.log(props)}
-      <img className={styles.thumbnail} src={isFolder(props.entry[".tag"])} />
-      <p className={styles.fileName}> {props.name} </p>
+      <img className={styles.thumbnail} src={isFolder(props.entry[".tag"])} alt="" />
+      <Link to={"/home" + props.entry.path_lower}><p className={styles.fileName}> {props.name} </p></Link>
       <p className={styles.timestamp}> {timeCheck(props.server_modified)}</p>
 
     </div>

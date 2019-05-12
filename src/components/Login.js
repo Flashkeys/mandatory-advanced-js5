@@ -1,6 +1,8 @@
 import React from 'react';
 import { Dropbox } from 'dropbox';
 import { token$ } from "./store";
+import { Redirect } from "react-router-dom";
+
 import styles from "./css/Login.module.css"
 import dropboxLogo from "../dropbox-logo.png";
 import logo from "../logo.png";
@@ -13,7 +15,7 @@ const Login = () => {
     })
     return (
         <>
-        {token$.value ? null : 
+        {token$.value ? <Redirect to="/home" /> : 
             <div className={styles.loginBody}>
             <header className={styles.loginHeader}>
             <img src={logo} className={styles.logo} alt=""/>
