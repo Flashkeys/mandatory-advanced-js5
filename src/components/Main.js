@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link, Redirect } from "react-router-dom";
 import { token$, updateToken } from './store.js';
 import { breadcrumbs } from "./utils";
-import styles from "./css/Main.module.css"
-import Dropbox from 'dropbox'
+import styles from "./css/Main.module.css";
+import Dropbox from 'dropbox';
 import Card from "./Card";
 
 
@@ -47,11 +47,11 @@ function Main(match) {
 
         <div className={styles.profileBar}>
         </div>
-        <button onClick={logOut}><i className="fas fa-sign-out-alt"></i> SIGN OUT </button>
+        <button className={styles.logoutButton} onClick={logOut}><i className="fas fa-sign-out-alt"></i> SIGN OUT </button>
         <div className={styles.searchBar}>
           <h3 className={styles.homeText}>
             {breadcrumbs(pathName).map((x) => { // breadcrumbs skapar en array med objekt från pathname ("/home/path/path"), finns i utils.js
-              return <Link key={x.path} to={x.path}>/{x.name}</Link>
+            return (<Link className={styles.bcLink} key={x.path} to={x.path}>/{decodeURI(x.name)}</Link>)
             })}
           </h3>
           <div className={styles.inputHeader}>
