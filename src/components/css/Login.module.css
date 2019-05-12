@@ -1,6 +1,27 @@
 .loginBody{
-    background-color: #538e96;
+    background-color: #f8f9ff;
     height: 21cm;
+}
+.loginHeader{
+    height: 74px;
+    background-color: #f8f9ff;
+    box-shadow: 1px 1px 1px black;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.loginHeader>img{
+    height: 42px;
+    margin: 16px;
+}
+.loginHeader>i{
+    color: #5ba8e9;
+    font-size: 27px;
+    margin-right: 12px;
+    margin-top: 19px;
+}
+.loginHeader>i:hover{
+    opacity: 0.6;
 }
 
 .loginA{
@@ -13,7 +34,7 @@
     border-radius: 11px;
 }
 .loginA:hover{
-    opacity: 0.5;
+    opacity: 0.8;
 }
 .loginButton{
     padding: 18px;
