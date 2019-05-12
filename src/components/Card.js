@@ -4,7 +4,6 @@ import Moment from 'moment';
 import { Link } from "react-router-dom";
 
 const Card = (props) => {
-  const currentPath = window.location.pathname;
 
   function isFolder(tag) {
     if (tag === "folder") {

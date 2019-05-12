@@ -32,6 +32,7 @@ function Main(match) {
 
   const logOut = () => {
     updateToken(null);
+    updateEntries([]);
   }
   
   if (token$.value === null){
