@@ -36,6 +36,7 @@ export default function parseQueryString(str) { // Används till Auth.js
   return ret;
 }
 
-export function breadCrumbs(pathname) {
+export function breadCrumbs(path) {
+  
   
 }

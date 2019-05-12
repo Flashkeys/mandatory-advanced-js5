@@ -21,9 +21,9 @@ const Card = (props) => {
     }
   }
 
-  function getThumbnail () {
+  /* function getThumbnail () {
     
-  }
+  } */
   
   return( // img, filename, tag, server_modified, id
     <div className={styles.newCard}>
