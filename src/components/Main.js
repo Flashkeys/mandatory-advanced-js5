@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Redirect } from "react-router-dom";
-import { token$, updateToken } from './store.js'
+import { token$, updateToken } from './store.js';
+import { breadcrumbs } from "./utils";
 import styles from "./css/Main.module.css"
 import Dropbox from 'dropbox'
 import Card from "./Card";
@@ -49,8 +50,8 @@ function Main(match) {
         <button onClick={logOut}><i className="fas fa-sign-out-alt"></i> SIGN OUT </button>
         <div className={styles.searchBar}>
           <h3 className={styles.homeText}>
-            {pathName.split("/").filter((x) => {return x !== "" }).map((x) => {
-              return <Link to={"/" + x}>/{x}</Link>
+            {breadcrumbs(pathName).map((x) => {
+              return <Link to={x.path}>/{x.name}</Link>
             })}
           </h3>
           <div className={styles.inputHeader}>

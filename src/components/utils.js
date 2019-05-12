@@ -36,7 +36,28 @@ export default function parseQueryString(str) { // Används till Auth.js
   return ret;
 }
 
-export function breadCrumbs(path) {
-  
-  
-}
+export function breadcrumbs(path) {
+  let breadcrumbsArray = [];
+  const splitpath = path.split("/").filter(x => {
+    return x !== "";
+  });
+
+  let previous = "";
+  for (let path of splitpath) {
+    let newPath = "";
+    if (breadcrumbsArray.length === 0) {
+      newPath = "/" + path;
+      previous += newPath;
+    } else {
+      newPath = previous + "/" + path;
+      previous += "/" + path;
+    }
+    let pathObj = { 
+      name: path,
+      path: newPath,
+    };
+    breadcrumbsArray.push(pathObj);
+    console.log(breadcrumbsArray);
+  }
+  return breadcrumbsArray;
+};
