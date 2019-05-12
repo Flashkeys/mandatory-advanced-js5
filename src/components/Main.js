@@ -18,7 +18,7 @@ function Main(match) {
     // Har just nu problem med mapp-namn som innehåller mellanslag, där URLen blir "/mapp/mapp%20med%20mellanslag/"
     // I övrigt funkar det som tänkt nu.
     const fixedPathName = pathName.substring(5); // Städar bort "/home" ur URLen
-      dbx.filesListFolder({ path: fixedPathName }) 
+      dbx.filesListFolder({ path: decodeURI(fixedPathName) }) 
         .then((res) => {
           updateEntries(res.entries);
         })
@@ -50,8 +50,8 @@ function Main(match) {
         <button onClick={logOut}><i className="fas fa-sign-out-alt"></i> SIGN OUT </button>
         <div className={styles.searchBar}>
           <h3 className={styles.homeText}>
-            {breadcrumbs(pathName).map((x) => {
-              return <Link to={x.path}>/{x.name}</Link>
+            {breadcrumbs(pathName).map((x) => { // breadcrumbs skapar en array med objekt från pathname ("/home/path/path"), finns i utils.js
+              return <Link key={x.path} to={x.path}>/{x.name}</Link>
             })}
           </h3>
           <div className={styles.inputHeader}>

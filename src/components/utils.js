@@ -57,7 +57,6 @@ export function breadcrumbs(path) {
       path: newPath,
     };
     breadcrumbsArray.push(pathObj);
-    console.log(breadcrumbsArray);
   }
   return breadcrumbsArray;
 };
