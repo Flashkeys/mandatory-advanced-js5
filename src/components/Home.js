@@ -7,14 +7,14 @@ import Login from './Login'
 import Auth from './Auth';
 import { token$ } from "./store";
 
-const Home = () => {
+const Home = ({ match }) => {
     if(token$.value === null){
         return <Redirect to="/" />
       }
     return (
         <div className={styles.homeContainer}>
             <Sidebar />
-            <Main />
+            <Main {...match} />
         </div>
     )
 }

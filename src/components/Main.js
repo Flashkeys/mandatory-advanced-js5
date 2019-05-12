@@ -1,35 +1,39 @@
 import React, { useState, useEffect } from 'react';
-import { Switch, Route,Redirect } from "react-router-dom";
-import { updateToken } from './store.js'
+import { Redirect } from "react-router-dom";
+import { token$, updateToken } from './store.js'
 import styles from "./css/Main.module.css"
-import Temp from "../Temp";
 import Dropbox from 'dropbox'
 import Card from "./Card";
-import { token$ } from "./store.js";
 
 
-function Main() {
+function Main(match) {
   const [entries, updateEntries] = useState([]);
   const dbx = new Dropbox.Dropbox({ accessToken: token$.value });
 
   useEffect(() => {
-    if (window.location.pathname === '/home') {
+  if (match.params.path) {
+    const pathName = match.url.substring(5); 
+      dbx.filesListFolder({ path: pathName })
+        .then((res) => {
+          console.log(match);
+          updateEntries(res.entries);
+        })
+    } else {
       dbx.filesListFolder({ path: "" })
         .then((res) => {
-          console.log(res);
           updateEntries(res.entries);
         })
     }
-
   }, []);
 
   const logOut = () => {
     updateToken(null);
-    
   }
-  if(token$.value === null){
+  
+  if (token$.value === null){
     return <Redirect to="/" />
   }
+
   return (
     <div>
       <div className={styles.topBar}>
@@ -52,7 +56,6 @@ function Main() {
       </div>
 
       <div className={styles.mainContainer}>
-
         {entries.map((entry) => (
           <Card
             key={entry.id}
@@ -63,7 +66,6 @@ function Main() {
             server_modified={entry.server_modified}
           />
         ))}
-
       </div>
     </div>
   )
