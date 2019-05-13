@@ -15,21 +15,12 @@ function Main(match) {
   const pathName = window.location.pathname;
   const { isShowing, toggle } = useModal();
   useEffect(() => {
-<<<<<<< HEAD
-    if (pathName !== match.url) { // Kollar om sökvägen inte är match.url ("/home/" eller "/home"), dvs att man går djupare
-      // Vi behöver bygga en snyggare funktion som hanterar urler bättre.
-      // Har just nu problem med mapp-namn som innehåller mellanslag, där URLen blir "/mapp/mapp%20med%20mellanslag/"
-      // I övrigt funkar det som tänkt nu.
-      const fixedPathName = pathName.substring(5); // Städar bort "/home" ur URLen
-      dbx.filesListFolder({ path: fixedPathName })
-=======
   if (pathName !== match.url) { // Kollar om sökvägen inte är match.url ("/home/" eller "/home"), dvs att man går djupare
     // Vi behöver bygga en snyggare funktion som hanterar urler bättre.
     // Har just nu problem med mapp-namn som innehåller mellanslag, där URLen blir "/mapp/mapp%20med%20mellanslag/"
     // I övrigt funkar det som tänkt nu.
     const fixedPathName = pathName.substring(5); // Städar bort "/home" ur URLen
       dbx.filesListFolder({ path: decodeURI(fixedPathName) }) 
->>>>>>> 1de7d3d412c416ad7dfc3bdacbebbfae1a0e79cd
         .then((res) => {
           updateEntries(res.entries);
         })
@@ -58,20 +49,12 @@ function Main(match) {
 
         <div className={styles.profileBar}>
         </div>
-<<<<<<< HEAD
-        <button onClick={logOut}><i className="fas fa-sign-out-alt"></i> SIGN OUT </button>
-        <button className="button-default" onClick={toggle}>Create Folder</button>
-        <div className={styles.searchBar}>
-          <h3 className={styles.homeText}>
-            {pathName.split("/").filter((x) => { return x !== "" }).map((x) => {
-              return <Link to={"/" + x}>/{x}</Link>
-=======
         <button className={styles.logoutButton} onClick={logOut}><i className="fas fa-sign-out-alt"></i> SIGN OUT </button>
+        <button className="button-default" onClick={toggle}>Create Folder</button>
         <div className={styles.searchBar}>
           <h3 className={styles.homeText}>
             {breadcrumbs(pathName).map((x) => { // breadcrumbs skapar en array med objekt från pathname ("/home/path/path"), finns i utils.js
             return (<Link className={styles.bcLink} key={x.path} to={x.path}>/{decodeURI(x.name)}</Link>)
->>>>>>> 1de7d3d412c416ad7dfc3bdacbebbfae1a0e79cd
             })}
           </h3>
           <div className={styles.inputHeader}>
