@@ -22,23 +22,20 @@ const Card = (props) => {
     }
   }
 
-  /* function getThumbnail () {
-    
-  } */
-  
-  return( // img, filename, tag, server_modified, id
+  return ( // img, filename, tag, server_modified, id
     <div className={styles.newCard}>
-    {console.log(props)}
-      <img className={styles.thumbnail} src={isFolder(props.entry[".tag"])} alt="" />
-      <div className={styles.meta}>
-        <Link className={styles.link} to={"/home" + props.entry.path_lower}><p className={styles.fileName}> {props.name} </p></Link>
-        <div className={styles.metadata}>
-          <p className={styles.timestamp}> {timeCheck(props.server_modified)}</p>
-          <p className={styles.size}> {size(props.entry.size)} </p>
-        </div>
-        </div>
+      {console.log(props)}
+      <Link className={styles.link} to={"/home" + props.entry.path_lower}>
+        <img className={styles.thumbnail} src={isFolder(props.entry[".tag"])} alt="" />
+        <p className={styles.fileName}> {props.name} </p></Link>
+      <p className={styles.timestamp}> {timeCheck(props.server_modified)}</p>
+      <p className={styles.timestamp} >{size(props.entry.size)}</p>
+
     </div>
   )
 }
 
-export default Card
+export default Card;
+
+//"2019-05-07T08:23:36Z"
+//"YYYY-MM-DD?hh:mm:ss?"

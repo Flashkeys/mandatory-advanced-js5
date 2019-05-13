@@ -2,7 +2,6 @@ import React from 'react';
 import { Dropbox } from 'dropbox';
 import { token$ } from "./store";
 import { Redirect } from "react-router-dom";
-
 import styles from "./css/Login.module.css"
 import dropboxLogo from "../dropbox-logo.png";
 import logo from "../logo.png";
@@ -13,19 +12,20 @@ const Login = () => {
         clientId: CLIENT_ID,
         fetch: fetch,
     })
+
     return (
         <>
-        {token$.value ? <Redirect to="/home" /> : 
-            <div className={styles.loginBody}>
-            <header className={styles.loginHeader}>
-            <img src={logo} className={styles.logo} alt=""/>
-            <i class="fas fa-bars"></i>
-                </header>
-                <a className={styles.loginA}href={dbx.getAuthenticationUrl('http://localhost:3000/auth')}>
-                <img src={dropboxLogo} className={styles.dropboxLogo} alt=""/>
-                <button className={styles.loginButton}>Connect w/ Dropbox</button>
-                </a>
-            </div>
+            {token$.value ? <Redirect to="/home" /> :
+                <div className={styles.loginBody}>
+                    <header className={styles.loginHeader}>
+                        <img src={logo} className={styles.logo} alt="" />
+                        <i className="fas fa-bars"></i>
+                    </header>
+                    <a className={styles.loginA} href={dbx.getAuthenticationUrl('http://localhost:3000/auth')}>
+                        <img src={dropboxLogo} className={styles.dropboxLogo} alt="" />
+                        <button className={styles.loginButton}>Connect w/ Dropbox</button>
+                    </a>
+                </div>
             }
         </>
     )

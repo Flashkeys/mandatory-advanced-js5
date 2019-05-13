@@ -5,13 +5,15 @@ import { breadcrumbs } from "./utils";
 import styles from "./css/Main.module.css";
 import Dropbox from 'dropbox';
 import Card from "./Card";
-
+import Modal from "./Modal";
+import useModal from './useModal';
+import './modal.css';
 
 function Main(match) {
   const [entries, updateEntries] = useState([]);
   const dbx = new Dropbox.Dropbox({ accessToken: token$.value });
   const pathName = window.location.pathname;
-
+  const { isShowing, toggle } = useModal();
   useEffect(() => {
   if (pathName !== match.url) { // Kollar om sökvägen inte är match.url ("/home/" eller "/home"), dvs att man går djupare
     // Vi behöver bygga en snyggare funktion som hanterar urler bättre.
@@ -36,8 +38,8 @@ function Main(match) {
     updateToken(null);
     updateEntries([]);
   }
-  
-  if (token$.value === null){
+
+  if (token$.value === null) {
     return <Redirect to="/" />
   }
 
@@ -78,7 +80,13 @@ function Main(match) {
           />
         ))}
       </div>
+      <Modal
+        isShowing={isShowing}
+        hide={toggle}
+      />
     </div>
+
+
   )
 }
 
