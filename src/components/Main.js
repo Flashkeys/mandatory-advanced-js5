@@ -81,6 +81,7 @@ function Main(match) {
             src="https://picsum.photos/200/150"
             id={entry.id}
             server_modified={entry.server_modified}
+            dbx={dbx}
           />
         ))}
       </div>
