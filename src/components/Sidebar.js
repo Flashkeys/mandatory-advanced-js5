@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './css/Sidebar.module.css';
 import logo from "../logo.png";
 import Modal from "./Modal";
-import useModal from './useModal';
- 
+   
 const Sidebar = () => {
-  const { isShowing, toggle } = useModal();
+  const  [isShowing, updateIsShowing ] = useState(false);
+  const [type, updateType] = useState(""); // => uploadFile
+
+  const togleModal = (e) =>{
+    const type = e.target.id; // => "uploadFile"
+    console.log(type);
+    
+    updateIsShowing(!isShowing)
+    updateType(type);
+    console.log("togle");
+    
+  }
 
   return (
     <div className={styles.container}>
@@ -19,7 +29,8 @@ const Sidebar = () => {
           <div className={styles.Links}>
           
             <Link to="/home/" className={styles.link}>Filer (root)</Link>
-            <button  onClick={toggle}>Create Folder</button>
+            <button  className={styles.openButton} id="createFolder" onClick={togleModal}>Create Folder</button>
+            <button  className={styles.openButton} id="uploadFile" onClick={togleModal}>Upload Folder</button>
           </div>
         </div>
       </div>
@@ -27,10 +38,8 @@ const Sidebar = () => {
         <p> / 2 GB</p>
         <progress id="file" max="100" value="70"> 70% </progress>
       </div>
-      <Modal
-        isShowing={isShowing}
-        hide={toggle}
-      />
+      
+   {isShowing ? <Modal togle={togleModal}  type={type} folder={window.location.pathname}/> : null}
     </div>
   )
 }

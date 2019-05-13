@@ -36,3 +36,19 @@
     border: 1px solid black;
     bottom: 0;
 }
+.openButton{
+    background-color: #f0f8ff00;
+    border: none;
+    padding: 0px 0px;
+    text-align: left;
+    font-size: 15px;
+    margin-top: 5px;
+    cursor: pointer;
+
+}
+.openButton:focus{
+    outline: none;
+}
+.openButton:hover{
+    color: #50808E;
+}
