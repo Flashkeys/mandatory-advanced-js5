@@ -1,4 +1,4 @@
-.modal-overlay {
+.modalOverlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -9,7 +9,7 @@
     opacity: .5;
   }
   
-  .modal-wrapper {
+  .modalWrapper {
     position: fixed;
     top: 0;
     left: 0;
@@ -21,7 +21,7 @@
     outline: 0;
   }
   
-  .modal {
+  .Modal {
     z-index: 100;
     background: white;
     position: relative;
@@ -31,32 +31,29 @@
     height: 294px;
     top: 167px;
   }
+   
   
-  .modal-content {
-    pointer-events: auto;
-  }
-  
-  .modal-header {
+  .modalHeader {
     display: flex;
     align-items: start;
     padding: 1.5rem 1.5rem .5rem 1.5rem;
   }
   
-  .modal-header .modal-title {
+  .modalHeader .modal-title {
     font-weight: 700;
     font-size: 1.2rem;
   }
-  .modal-header>span{
+  .modalHeader>span{
     font-size: 20px;
     color: #9a9d9e;
   }
-  .modal-header i{
+  .modalHeader i{
     color: #72cbf3;
     margin-right: 15px;
   }
 
 
-  .modal-close-button {
+  .modalCloseButton {
     padding: 1rem;
     margin: -1rem -1rem -1rem auto;
     font-size: 1.4rem;
@@ -69,12 +66,12 @@
     outline: 0 !important;
   }
   
-  .modal-close-button:hover {
+  .modalCloseButton:hover {
     opacity: .8;
     text-decoration: none;
   }
   
-  .modal-body {
+  .modalBody {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -84,21 +81,21 @@
     margin: 50px 0px;
   }
   
-  .modal-body>label{
+  .modalBody>label{
     font-size: 12px;
     margin-bottom: 5px;
     color: #9c9fa2;
   }
-  .modal-body>input:focus{
+  .modalBody>input:focus{
     outline: -webkit-focus-ring-color auto 1px;
   }
-  .modal-footer {
+  .modalFooter {
     padding: 1rem 1.5rem;
     display: flex;
     justify-content: flex-end;
     background-color: #fdfdfd;
   }
-  .modal-footer .cancel-button{
+  .modalFooter .cancelButton{
     cursor: pointer;
     border: 1px solid transparent;
     padding: 6px 12px;
@@ -110,14 +107,14 @@
     border-color: #ccc;
     width: 103px;
   }
-  .modal-footer .cancel-button:hover{
+  .modalFooter .cancelButton:hover{
     color: #333;
     background-color: #e6e6e6;
     border-color: #adadad;
   }
 
 
-  .modal-footer .create-button{
+  .modalFooter .createButton{
     cursor: pointer;
     border: 1px solid transparent;
     padding: 6px 12px;
@@ -131,7 +128,7 @@
     width: 103px;
   }
 
-  .modal-footer .create-button:hover{
+  .modalFooter .createButton:hover{
     color: #fff;
     background-color: #286090;
     border-color: #204d74;

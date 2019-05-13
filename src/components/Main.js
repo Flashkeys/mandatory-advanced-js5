@@ -1,19 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Redirect } from "react-router-dom";
 import { token$, updateToken } from './store.js';
-import { breadcrumbs, backButton } from "./utils";
+import { breadcrumbs } from "./utils";
 import styles from "./css/Main.module.css";
 import Dropbox from 'dropbox';
 import Card from "./Card";
-import Modal from "./Modal";
-import useModal from './useModal';
+
 
 function Main(match) {
   const [entries, updateEntries] = useState([]);
-  const { isShowing, toggle } = useModal();
   const dbx = new Dropbox.Dropbox({ accessToken: token$.value });
   const pathName = window.location.pathname;
-
+  
   useEffect(() => {
   if (pathName !== match.url) { // Kollar om sökvägen inte är match.url ("/home/" eller "/home"), dvs att man går djupare
     // Vi behöver bygga en snyggare funktion som hanterar urler bättre.
@@ -50,14 +48,11 @@ function Main(match) {
         <div className={styles.profileBar}>
         </div>
         <button className={styles.logoutButton} onClick={logOut}><i className="fas fa-sign-out-alt"></i> SIGN OUT </button>
-        <button className={styles.createFolder} onClick={toggle}>Create Folder</button>
+        
         <div className={styles.searchBar}>
           <h3 className={styles.homeText}>
-            {breadcrumbs(pathName).map((x, i) => { // breadcrumbs skapar en array med objekt från pathname ("/home/path/path"), finns i utils.js
-            return <Link className={styles.bcLink} key={x.path} to={x.path}>{i === 0 ? null : <i class="fas fa-chevron-right"></i>} {decodeURI(x.name)} </Link>;
-            })}
-            {backButton(pathName).map(x => {
-              return <Link className={styles.bcLink} to={x.path}><i class="fas fa-arrow-alt-circle-up"></i></Link>
+            {breadcrumbs(pathName).map((x) => { // breadcrumbs skapar en array med objekt från pathname ("/home/path/path"), finns i utils.js
+            return (<Link className={styles.bcLink} key={x.path} to={x.path}>/{decodeURI(x.name)}</Link>)
             })}
           </h3>
           <div className={styles.inputHeader}>
@@ -85,10 +80,7 @@ function Main(match) {
           />
         ))}
       </div>
-      <Modal
-        isShowing={isShowing}
-        hide={toggle}
-      />
+
     </div>
 
 
