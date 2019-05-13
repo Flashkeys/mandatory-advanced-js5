@@ -5,15 +5,13 @@ import { breadcrumbs } from "./utils";
 import styles from "./css/Main.module.css";
 import Dropbox from 'dropbox';
 import Card from "./Card";
-import Modal from "./Modal";
-import useModal from './useModal';
- 
+
 
 function Main(match) {
   const [entries, updateEntries] = useState([]);
   const dbx = new Dropbox.Dropbox({ accessToken: token$.value });
   const pathName = window.location.pathname;
-  const { isShowing, toggle } = useModal();
+  
   useEffect(() => {
   if (pathName !== match.url) { // Kollar om sökvägen inte är match.url ("/home/" eller "/home"), dvs att man går djupare
     // Vi behöver bygga en snyggare funktion som hanterar urler bättre.
@@ -50,7 +48,7 @@ function Main(match) {
         <div className={styles.profileBar}>
         </div>
         <button className={styles.logoutButton} onClick={logOut}><i className="fas fa-sign-out-alt"></i> SIGN OUT </button>
-        <button  onClick={toggle}>Create Folder</button>
+        
         <div className={styles.searchBar}>
           <h3 className={styles.homeText}>
             {breadcrumbs(pathName).map((x) => { // breadcrumbs skapar en array med objekt från pathname ("/home/path/path"), finns i utils.js
@@ -81,10 +79,7 @@ function Main(match) {
           />
         ))}
       </div>
-      <Modal
-        isShowing={isShowing}
-        hide={toggle}
-      />
+
     </div>
 
 
