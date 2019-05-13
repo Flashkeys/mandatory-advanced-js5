@@ -21,15 +21,12 @@ const Card = (props) => {
     }
   }
 
-  /* function getThumbnail () {
-    
-  } */
-  
-  return( // img, filename, tag, server_modified, id
+  return ( // img, filename, tag, server_modified, id
     <div className={styles.newCard}>
-    {console.log(props)}
-      <img className={styles.thumbnail} src={isFolder(props.entry[".tag"])} alt="" />
-      <Link className={styles.link} to={"/home" + props.entry.path_lower}><p className={styles.fileName}> {props.name} </p></Link>
+      {console.log(props)}
+      <Link className={styles.link} to={"/home" + props.entry.path_lower}>
+        <img className={styles.thumbnail} src={isFolder(props.entry[".tag"])} alt="" />
+        <p className={styles.fileName}> {props.name} </p></Link>
       <p className={styles.timestamp}> {timeCheck(props.server_modified)}</p>
       <p className={styles.timestamp} >{props.entry.size} bytes</p>
 
@@ -37,7 +34,7 @@ const Card = (props) => {
   )
 }
 
-export default Card
+export default Card;
 
 //"2019-05-07T08:23:36Z"
 //"YYYY-MM-DD?hh:mm:ss?"
