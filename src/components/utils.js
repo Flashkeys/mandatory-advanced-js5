@@ -60,3 +60,16 @@ export function breadcrumbs(path) {
   }
   return breadcrumbsArray;
 };
+
+export function backButton(path) {
+  const list = breadcrumbs(path);
+  const bcLength = list.length;
+  let listArr = [];
+
+  if (list.length === 1) {
+    return listArr;
+  } else {
+    listArr.push(list[bcLength - 2]);
+    return listArr;
+  }
+}
