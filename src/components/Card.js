@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './css/Card.module.css';
 import Moment from 'moment';
 import { Link } from "react-router-dom";
+import { size } from "./utils";
 
 const Card = (props) => {
 
@@ -29,15 +30,15 @@ const Card = (props) => {
     <div className={styles.newCard}>
     {console.log(props)}
       <img className={styles.thumbnail} src={isFolder(props.entry[".tag"])} alt="" />
-      <Link className={styles.link} to={"/home" + props.entry.path_lower}><p className={styles.fileName}> {props.name} </p></Link>
-      <p className={styles.timestamp}> {timeCheck(props.server_modified)}</p>
-      <p className={styles.timestamp} >{props.entry.size} bytes</p>
-
+      <div className={styles.meta}>
+        <Link className={styles.link} to={"/home" + props.entry.path_lower}><p className={styles.fileName}> {props.name} </p></Link>
+        <div className={styles.metadata}>
+          <p className={styles.timestamp}> {timeCheck(props.server_modified)}</p>
+          <p className={styles.size}> {size(props.entry.size)} </p>
+        </div>
+        </div>
     </div>
   )
 }
 
 export default Card
-
-//"2019-05-07T08:23:36Z"
-//"YYYY-MM-DD?hh:mm:ss?"

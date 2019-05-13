@@ -39,7 +39,7 @@ export default function parseQueryString(str) { // Används till Auth.js
 export function breadcrumbs(path) {
   let breadcrumbsArray = [];
   const splitpath = path.split("/").filter(x => {
-    return x !== "";
+    return x !== ""; 
   });
 
   let previous = "";
@@ -59,4 +59,17 @@ export function breadcrumbs(path) {
     breadcrumbsArray.push(pathObj);
   }
   return breadcrumbsArray;
+};
+
+export function size(bytes) { //används till Card.js
+  let sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+console.log(bytes);
+  if (bytes === undefined) 
+    return null;
+
+  if (bytes === 0) 
+    return '0 Byte';
+
+  let i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+   return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
 };
