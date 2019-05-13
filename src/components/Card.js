@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './css/Card.module.css';
 import Moment from 'moment';
 import { Link } from "react-router-dom";
+import { size } from "./utils";
 
 const Card = (props) => {
 
@@ -28,7 +29,7 @@ const Card = (props) => {
         <img className={styles.thumbnail} src={isFolder(props.entry[".tag"])} alt="" />
         <p className={styles.fileName}> {props.name} </p></Link>
       <p className={styles.timestamp}> {timeCheck(props.server_modified)}</p>
-      <p className={styles.timestamp} >{props.entry.size} bytes</p>
+      <p className={styles.timestamp} >{size(props.entry.size)}</p>
 
     </div>
   )
