@@ -4,20 +4,22 @@ import { token$, updateToken } from './store.js'
 import styles from "./css/Main.module.css"
 import Dropbox from 'dropbox'
 import Card from "./Card";
-
+import Modal from "./Modal";
+import useModal from './useModal';
+import './modal.css';
 
 function Main(match) {
   const [entries, updateEntries] = useState([]);
   const dbx = new Dropbox.Dropbox({ accessToken: token$.value });
   const pathName = window.location.pathname;
-
+  const { isShowing, toggle } = useModal();
   useEffect(() => {
-  if (pathName !== match.url) { // Kollar om sökvägen inte är match.url ("/home/" eller "/home"), dvs att man går djupare
-    // Vi behöver bygga en snyggare funktion som hanterar urler bättre.
-    // Har just nu problem med mapp-namn som innehåller mellanslag, där URLen blir "/mapp/mapp%20med%20mellanslag/"
-    // I övrigt funkar det som tänkt nu.
-    const fixedPathName = pathName.substring(5); // Städar bort "/home" ur URLen
-      dbx.filesListFolder({ path: fixedPathName }) 
+    if (pathName !== match.url) { // Kollar om sökvägen inte är match.url ("/home/" eller "/home"), dvs att man går djupare
+      // Vi behöver bygga en snyggare funktion som hanterar urler bättre.
+      // Har just nu problem med mapp-namn som innehåller mellanslag, där URLen blir "/mapp/mapp%20med%20mellanslag/"
+      // I övrigt funkar det som tänkt nu.
+      const fixedPathName = pathName.substring(5); // Städar bort "/home" ur URLen
+      dbx.filesListFolder({ path: fixedPathName })
         .then((res) => {
           updateEntries(res.entries);
         })
@@ -35,8 +37,8 @@ function Main(match) {
     updateToken(null);
     updateEntries([]);
   }
-  
-  if (token$.value === null){
+
+  if (token$.value === null) {
     return <Redirect to="/" />
   }
 
@@ -47,9 +49,10 @@ function Main(match) {
         <div className={styles.profileBar}>
         </div>
         <button onClick={logOut}><i className="fas fa-sign-out-alt"></i> SIGN OUT </button>
+        <button className="button-default" onClick={toggle}>Create Folder</button>
         <div className={styles.searchBar}>
           <h3 className={styles.homeText}>
-            {pathName.split("/").filter((x) => {return x !== "" }).map((x) => {
+            {pathName.split("/").filter((x) => { return x !== "" }).map((x) => {
               return <Link to={"/" + x}>/{x}</Link>
             })}
           </h3>
@@ -77,7 +80,13 @@ function Main(match) {
           />
         ))}
       </div>
+      <Modal
+        isShowing={isShowing}
+        hide={toggle}
+      />
     </div>
+
+
   )
 }
 

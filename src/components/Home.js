@@ -16,4 +16,4 @@ const Home = ({ match }) => {
         </div>
     )
 }
-export default Home
+export default Home     
