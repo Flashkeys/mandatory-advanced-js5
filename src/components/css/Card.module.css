@@ -18,3 +18,13 @@
 .timestamp {
 	color: grey;
 }
+
+.link {
+	color: #5BA8E9;
+	text-decoration: none;
+	text-transform: capitalize;
+}
+
+.link:visited {
+	color: #5BA8E9;
+}

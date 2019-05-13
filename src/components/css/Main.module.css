@@ -73,6 +73,7 @@
 }
 
 .bcLink {
+  text-transform: capitalize;
   color: #5BA8E9;
   text-decoration: none;
   margin-right: 3px;
