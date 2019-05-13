@@ -31,6 +31,7 @@ const Card = (props) => {
       <img className={styles.thumbnail} src={isFolder(props.entry[".tag"])} alt="" />
       <Link className={styles.link} to={"/home" + props.entry.path_lower}><p className={styles.fileName}> {props.name} </p></Link>
       <p className={styles.timestamp}> {timeCheck(props.server_modified)}</p>
+      <p className={styles.timestamp} >{props.entry.size} bytes</p>
 
     </div>
   )
