@@ -4,22 +4,22 @@ import styles from './css/modal.module.css';
 
 const Modal = ({ isShowing, hide }) => isShowing ? ReactDOM.createPortal(
   <React.Fragment>
-    <div className="modal-overlay" />
-    <div className="modal-wrapper" aria-modal aria-hidden tabIndex={-1} role="dialog">
-      <div className="modal">
-        <div className="modal-header">
-          <span><i class="fas fa-folder"></i>     Create New Folder</span>
-          <button type="button" className="modal-close-button" data-dismiss="modal" aria-label="Close" onClick={hide}>
+    <div className={styles.modalOverlay} />
+    <div className={styles.modalWrapper} aria-modal aria-hidden tabIndex={-1} role="dialog">
+      <div className={styles.Modal}>
+        <div className={styles.modalHeader}>
+          <span><i className="fas fa-folder"></i>     Create New Folder</span>
+          <button type="button" className={styles.modalCloseButton} data-dismiss="modal" aria-label="Close" onClick={hide}>
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div className="modal-body">
+        <div className={styles.modalBody}>
          <label> Name this folder</label>
           <input />
         </div>
-        <div className="modal-footer">
-        <button type="button" className="cancel-button" data-dismiss="modal" aria-label="Close" onClick={hide}>Cancel</button>
-        <button type="button" className="create-button">Create</button>
+        <div className={styles.modalFooter}>
+        <button type="button" className={styles.cancelButton} data-dismiss="modal" aria-label="Close" onClick={hide}>Cancel</button>
+        <button type="button" className={styles.createButton}>Create</button>
         </div>
       </div>
     </div>
