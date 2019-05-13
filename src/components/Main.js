@@ -10,9 +10,10 @@ import useModal from './useModal';
 
 function Main(match) {
   const [entries, updateEntries] = useState([]);
+  const { isShowing, toggle } = useModal();
   const dbx = new Dropbox.Dropbox({ accessToken: token$.value });
   const pathName = window.location.pathname;
-  const { isShowing, toggle } = useModal();
+  
   useEffect(() => {
   if (pathName !== match.url) { // Kollar om sökvägen inte är match.url ("/home/" eller "/home"), dvs att man går djupare
     // Vi behöver bygga en snyggare funktion som hanterar urler bättre.
