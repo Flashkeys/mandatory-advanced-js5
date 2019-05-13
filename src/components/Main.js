@@ -6,7 +6,6 @@ import styles from "./css/Main.module.css";
 import Dropbox from 'dropbox';
 import Card from "./Card";
 
-
 function Main(match) {
   const [entries, updateEntries] = useState([]);
   const dbx = new Dropbox.Dropbox({ accessToken: token$.value });
@@ -71,11 +70,8 @@ function Main(match) {
         {entries.map((entry) => (
           <Card
             key={entry.id}
-            entry={entry}
-            name={entry.name}
-            src="https://picsum.photos/200/150"
-            id={entry.id}
-            server_modified={entry.server_modified}
+            dbx={dbx} //src till thumbnail
+            {...entry}
           />
         ))}
       </div>
