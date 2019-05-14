@@ -3,6 +3,7 @@ import styles from './css/Card.module.css';
 import Moment from 'moment';
 import { Link } from "react-router-dom";
 import { size } from "./utils";
+import Modal from "./Modal";
 
 const Card = (props) => {
 
@@ -14,6 +15,16 @@ const Card = (props) => {
     }
   }
 
+  function isFile(tag) { 
+    if (tag === "file") {
+      const ACCESS_TOKEN = props.dbx.accessToken;
+      const FILE_PATH = "/"
+      props.dbx.filesDownload({ path: decodeURI(props.entry.path_lower) })
+        .then(data => {
+          console.log(data);
+        })
+    }
+  }
 
  const imgRef = React.useRef();
  function getThumbnail (src) {
@@ -36,16 +47,17 @@ const Card = (props) => {
     }
   }
 
+  const tag = props[".tag"];
 
   return ( // img, filename, tag, server_modified, id
     <div className={styles.newCard}>
     {console.log(props)}
-    <Link className={styles.link} to={"/home" + props.path_lower}>
-      <img className={styles.thumbnail} ref={imgRef} src={isFolder(props[".tag"])} alt="" />
+    <Link className={styles.link} onClick={() => isFile(tag)} to={"/home" + props.path_lower}>
+      <img className={styles.thumbnail} ref={imgRef} src={isFolder(tag)} alt="" />
       <div className={styles.meta}>
         <p className={styles.fileName}> {props.name} </p>
         <div>
-        <button className={styles.starIcon}><i className="icon ion-md-star"></i></button>
+        
         </div>
         <div className={styles.metadata}>
           <p className={styles.timestamp}> {timeCheck(props.server_modified)}</p>
@@ -54,6 +66,9 @@ const Card = (props) => {
       </div>
       </Link>
     </div>
+
+    
+
   )
 }
 

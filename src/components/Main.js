@@ -28,6 +28,12 @@ function Main(match) {
           updateEntries(res.entries);
         })
     }
+
+    dbx.filesGetThumbnail({ path: "/354.jpg" })
+      .then(x => {
+        console.log(x);
+        console.log(URL.createObjectURL(x.fileBlob))
+      })
     // För att rensa ut varningsmeddelandet om outer scope på pathName
     // eslint-disable-next-line
   }
