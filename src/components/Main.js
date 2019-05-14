@@ -24,7 +24,7 @@ function Main(match) {
     } else { // Om det är /home eller /home/ så hämtas root här
       dbx.filesListFolder({ path: "" })
         .then((res) => {
-          updateEntries(res.entries);
+          updateEntries(res.entries);          
         })
     }
     // För att rensa ut varningsmeddelandet om outer scope på pathName
@@ -38,8 +38,8 @@ function Main(match) {
 
   if (token$.value === null) {
     return <Redirect to="/" />
-  }
-
+  } 
+  
   return (
     <div>
       <div className={styles.topBar}>
