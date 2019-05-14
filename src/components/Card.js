@@ -8,13 +8,28 @@ const Card = (props) => {
 
   const [starIcon, updateStarIcon] = useState(false);
 
+<<<<<<< HEAD
   function isFile(tag) { 
+=======
+  function isFolder(tag) {
+    if (tag === "folder") {
+      return "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLfDzP9UsOfVcePDGDEmNKNT9Cz7rhBw0QM-GmzTH7bDxfhMZ7TA";
+    } else {
+      return getThumbnail(props.path_display)
+    }
+  }
+
+  function isFile(tag, id) { 
+>>>>>>> da4c603a670558571ccfb6c567ebb16717e09874
     if (tag === "file") {
       const ACCESS_TOKEN = props.dbx.accessToken;
       const FILE_PATH = "/"
-      props.dbx.filesDownload({ path: decodeURI(props.entry.path_lower) })
+      props.dbx.filesDownload({ path: id })
         .then(data => {
           console.log(data);
+        })
+        .catch(err => {
+          console.log(err);
         })
     }
   }
@@ -72,9 +87,14 @@ const Card = (props) => {
 
   return ( // img, filename, tag, server_modified, id
     <div className={styles.newCard}>
+<<<<<<< HEAD
     {console.log(props)}
     <Link className={styles.link} onClick={() => isFile(tag)} to={"/home" + props.path_lower}>
       <img className={styles.thumbnail} ref={imgRef} src={isFolder(tag, props.name)} alt="" />
+=======
+    <Link className={styles.link} onClick={() => isFile} to={"/home" + props.path_lower}>
+      <img className={styles.thumbnail} ref={imgRef} src={isFolder(tag)} alt="" />
+>>>>>>> da4c603a670558571ccfb6c567ebb16717e09874
       <div className={styles.meta}>
         <p className={styles.fileName}> {props.name} </p>
         <div className={styles.metadata}>
@@ -83,7 +103,7 @@ const Card = (props) => {
         </div>
       </div>
       </Link>
-      <button className={styles.starIcon}><i className="icon ion-md-star-outline"></i></button>
+      <button className={styles.starIcon}><i className="icon ion-ios-star-outline"></i></button>
     </div>
   )
 }
