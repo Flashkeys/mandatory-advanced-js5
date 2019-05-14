@@ -30,7 +30,7 @@ const Sidebar = () => {
           
             <Link to="/home/" className={styles.link}>Filer (root)</Link>
             <button  className={styles.openButton} id="createFolder" onClick={togleModal}>Create Folder</button>
-            <button  className={styles.openButton} id="uploadFile" onClick={togleModal}>Upload Folder</button>
+            <button  className={styles.openButton} id="uploadFile" onClick={togleModal}>Upload File</button>
           </div>
         </div>
       </div>
