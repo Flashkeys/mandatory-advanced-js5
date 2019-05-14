@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 import { size } from "./utils";
 
 const Card = (props) => {
-
-  const [starIcon, updateStarIcon] = useState(false);
+  
+  const [starIcon, updateStarIcon] = useState(props.id === localStorage.getItem(props.id));
 
   function downloadFile() { 
     props.dbx.filesGetTemporaryLink({ path: props.path_lower })
@@ -65,7 +65,17 @@ const Card = (props) => {
   }
 
   const tag = props[".tag"];
+  const toggleStar = () => {
+    if(!starIcon){
+      updateStarIcon(true)
+      localStorage.setItem(props.id, props.id)
+    }else {
+      updateStarIcon(false)
+      localStorage.removeItem(props.id)
+    }
+  }
 
+//"icon ion-ios-star-outline"
   return ( // img, filename, tag, server_modified, id
     <div className={styles.newCard}>
     
@@ -78,7 +88,7 @@ const Card = (props) => {
           <p className={styles.size}> {size(props.size)} </p>
         </div>
       </div>
-      <button className={styles.starIcon}><i className="icon ion-ios-star-outline"></i></button>
+      <button className={styles.starIcon} onClick={toggleStar} ><i className={`icon ${starIcon ? "ion-ios-star" : "ion-ios-star-outline" } `}></i></button>
     </div>
   )
 }

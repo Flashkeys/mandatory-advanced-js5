@@ -77,6 +77,7 @@ function Main(match) {
         {entries.map((entry) => (
           <Card
             key={entry.id}
+            id={entry.id}
             dbx={dbx} //src till thumbnail
             {...entry}
           />

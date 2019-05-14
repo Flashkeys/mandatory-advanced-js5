@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Temp = () => {
+const Favorites = () => {
 
     return (
         <div className="container">
@@ -10,4 +10,4 @@ const Temp = () => {
         </div>
     )
 }
-export default Temp
+export default Favorites
