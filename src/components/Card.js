@@ -47,6 +47,9 @@ const Card = (props) => {
         </div>
       </div>
     </div>
+
+    {isShowing ? <Modal /> : null}
+
   )
 }
 
