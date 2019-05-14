@@ -45,7 +45,7 @@ const Card = (props) => {
 
  const imgRef = React.useRef();
  function getThumbnail (src) {
-   console.log(src);
+   //console.log(src);
    props.dbx.filesGetThumbnail({ path: src }) 
         .then((res) => {
             const thumb = URL.createObjectURL(res.fileBlob);
