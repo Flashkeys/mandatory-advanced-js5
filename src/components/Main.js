@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Redirect } from "react-router-dom";
 import { token$, updateToken } from './store.js';
-import { breadcrumbs } from "./utils";
+import { breadcrumbs, backButton } from "./utils";
 import styles from "./css/Main.module.css";
 import Dropbox from 'dropbox';
 import Card from "./Card";
@@ -54,8 +54,11 @@ function Main(match) {
         
         <div className={styles.searchBar}>
           <h3 className={styles.homeText}>
+            {backButton(pathName).map((x) => {
+              return <Link className={styles.backButton} to={x.path}><i className="icon ion-md-arrow-round-up"></i></Link>
+            })}
             {breadcrumbs(pathName).map((x) => { // breadcrumbs skapar en array med objekt från pathname ("/home/path/path"), finns i utils.js
-            return (<Link className={styles.bcLink} key={x.path} to={x.path}>/{decodeURI(x.name)}</Link>)
+            return (<Link className={styles.bcLink} key={x.path} to={x.path}>{decodeURI(x.name)} <i class="fas fa-angle-right"></i> </Link>)
             })}
           </h3>
           <div className={styles.inputHeader}>

@@ -80,3 +80,9 @@
   text-decoration: none;
   margin-right: 3px;
 }
+
+.backButton {
+  color: #5BA8E9;
+  font-size: 1.6rem;
+  margin-right: 16px;
+}

@@ -64,9 +64,15 @@ export function backButton(path) {
   let listArr = [];
 
   if (list.length === 1) {
+    let obj = {
+      name: "undefined",
+      path: "/home"
+    }
+    listArr.push(obj);
     return listArr;
   } else {
     listArr.push(list[bcLength - 2]);
+    console.log(listArr);
     return listArr;
   }
 }
