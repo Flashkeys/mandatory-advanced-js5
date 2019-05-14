@@ -45,6 +45,7 @@
 	text-align: center;
 	border: none;
 	background-color: white;
+	color: grey;
 }
 .starIcon:hover {
 	cursor: pointer;

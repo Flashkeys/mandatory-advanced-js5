@@ -25,14 +25,16 @@ const Card = (props) => {
     }
   }
 
-  const imgRef = React.useRef();
-  function getThumbnail(src) {
-    props.dbx.filesGetThumbnail({ path: src })
-      .then((res) => {
-        const thumb = URL.createObjectURL(res.fileBlob);
-        imgRef.current.src = thumb;
-
-      })
+ const imgRef = React.useRef();
+ function getThumbnail (src) {
+   props.dbx.filesGetThumbnail({ path: src }) 
+        .then((res) => {
+            const thumb = URL.createObjectURL(res.fileBlob);
+            imgRef.current.src = thumb;
+        })
+        .catch(err => {
+          console.log(err);
+        })
   };
 
 
