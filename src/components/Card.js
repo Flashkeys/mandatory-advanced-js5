@@ -16,18 +16,16 @@ const Card = (props) => {
     }
   }
 
-  function isFile(tag, id) { 
-    if (tag === "file") {
-      const ACCESS_TOKEN = props.dbx.accessToken;
-      const FILE_PATH = "/"
-      props.dbx.filesDownload({ path: id })
-        .then(data => {
-          console.log(data);
+  function downloadFile() { 
+      props.dbx.filesGetTemporaryLink({ path: props.path_lower })
+        .then(res => {
+          window.location.href = res.link;
         })
         .catch(err => {
           console.log(err);
         })
-    }
+
+    
   }
 
  const imgRef = React.useRef();
@@ -55,16 +53,16 @@ const Card = (props) => {
 
   return ( // img, filename, tag, server_modified, id
     <div className={styles.newCard}>
-    <Link className={styles.link} onClick={() => isFile} to={"/home" + props.path_lower}>
+    
       <img className={styles.thumbnail} ref={imgRef} src={isFolder(tag)} alt="" />
       <div className={styles.meta}>
-        <p className={styles.fileName}> {props.name} </p>
+      {tag === "folder" ? <Link className={styles.link} to={"/home" + props.path_lower}><p className={styles.fileName}> {props.name} </p></Link> : null}
+      {tag === "file" ? <button className={styles.fileLink} onClick={() => downloadFile(props.id)} to={null}><p className={styles.fileName}> {props.name} </p></button> : null}
         <div className={styles.metadata}>
           <p className={styles.timestamp}> {timeCheck(props.server_modified)}</p>
           <p className={styles.size}> {size(props.size)} </p>
         </div>
       </div>
-      </Link>
       <button className={styles.starIcon}><i className="icon ion-ios-star-outline"></i></button>
     </div>
   )
