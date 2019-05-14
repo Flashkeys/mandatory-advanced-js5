@@ -52,15 +52,17 @@ const Card = (props) => {
       <Link className={styles.link} onClick={() => isFile(tag)} to={"/home" + props.entry.path_lower}>
         <img className={styles.thumbnail} src={isFolder(tag)} alt="" />
         <div className={styles.meta}>
-          <p className={styles.fileName}> {props.name} </p></Link>
+          <p className={styles.fileName}> {props.name} </p>
         <div className={styles.metadata}>
           <p className={styles.timestamp}> {timeCheck(props.server_modified)}</p>
           <p className={styles.size}> {size(props.size)} </p>
         </div>
-      </div>
+      </div></Link>
+      
+      { isShowing ? <Modal /> : null }
     </div>
 
-    { isShowing ? <Modal /> : null }
+    
 
   )
 }
