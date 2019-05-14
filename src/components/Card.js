@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { size } from "./utils";
 
 const Card = (props) => {
-  
+
   const [starIcon, updateStarIcon] = useState(props.id === localStorage.getItem(props.id));
 
   function downloadFile() { 
@@ -75,7 +75,6 @@ const Card = (props) => {
     }
   }
 
-//"icon ion-ios-star-outline"
   return ( // img, filename, tag, server_modified, id
     <div className={styles.newCard}>
     
