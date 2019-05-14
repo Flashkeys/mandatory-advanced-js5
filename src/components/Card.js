@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useReducer } from 'react';
 import styles from './css/Card.module.css';
 import Moment from 'moment';
 import { Link } from "react-router-dom";
@@ -7,14 +7,6 @@ import { size } from "./utils";
 const Card = (props) => {
 
   const [starIcon, updateStarIcon] = useState(false);
-
-  function isFolder(tag) {
-    if (tag === "folder") {
-      return "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLfDzP9UsOfVcePDGDEmNKNT9Cz7rhBw0QM-GmzTH7bDxfhMZ7TA";
-    } else {
-      return getThumbnail(props.path_display)
-    }
-  }
 
   function isFile(tag) { 
     if (tag === "file") {
@@ -26,9 +18,37 @@ const Card = (props) => {
         })
     }
   }
+  // thumbnails
+
+
+//___________________________-
+  function getFileType (name) {
+    return name.substring(name.lastIndexOf('.')+1, name.length).toLowerCase()|| name;
+  }
+ 
+  function isFolder(tag, name) {
+      if (tag === "folder") {
+        return "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLfDzP9UsOfVcePDGDEmNKNT9Cz7rhBw0QM-GmzTH7bDxfhMZ7TA";
+      } else {
+          switch(getFileType(name)) {
+              case "jpg":
+              case "jpeg":
+              case "png":
+              case "svg":
+              case "tiff":
+              case "tif":
+                  return getThumbnail(props.path_display);
+              case "pdf":
+                  return "https://image.flaticon.com/icons/svg/337/337946.svg";
+              default:
+                  return "https://www.shareicon.net/data/512x512/2016/04/28/756959_document_512x512.png";
+            }
+      }
+    }
 
  const imgRef = React.useRef();
  function getThumbnail (src) {
+   console.log(src);
    props.dbx.filesGetThumbnail({ path: src }) 
         .then((res) => {
             const thumb = URL.createObjectURL(res.fileBlob);
@@ -54,7 +74,7 @@ const Card = (props) => {
     <div className={styles.newCard}>
     {console.log(props)}
     <Link className={styles.link} onClick={() => isFile(tag)} to={"/home" + props.path_lower}>
-      <img className={styles.thumbnail} ref={imgRef} src={isFolder(tag)} alt="" />
+      <img className={styles.thumbnail} ref={imgRef} src={isFolder(tag, props.name)} alt="" />
       <div className={styles.meta}>
         <p className={styles.fileName}> {props.name} </p>
         <div className={styles.metadata}>
