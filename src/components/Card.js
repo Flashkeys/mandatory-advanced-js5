@@ -16,13 +16,16 @@ const Card = (props) => {
     }
   }
 
-  function isFile(tag) { 
+  function isFile(tag, id) { 
     if (tag === "file") {
       const ACCESS_TOKEN = props.dbx.accessToken;
       const FILE_PATH = "/"
-      props.dbx.filesDownload({ path: decodeURI(props.entry.path_lower) })
+      props.dbx.filesDownload({ path: id })
         .then(data => {
           console.log(data);
+        })
+        .catch(err => {
+          console.log(err);
         })
     }
   }
@@ -52,8 +55,7 @@ const Card = (props) => {
 
   return ( // img, filename, tag, server_modified, id
     <div className={styles.newCard}>
-    {console.log(props)}
-    <Link className={styles.link} onClick={() => isFile(tag)} to={"/home" + props.path_lower}>
+    <Link className={styles.link} onClick={() => isFile} to={"/home" + props.path_lower}>
       <img className={styles.thumbnail} ref={imgRef} src={isFolder(tag)} alt="" />
       <div className={styles.meta}>
         <p className={styles.fileName}> {props.name} </p>
