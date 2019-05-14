@@ -40,17 +40,19 @@ const Card = (props) => {
   return ( // img, filename, tag, server_modified, id
     <div className={styles.newCard}>
     {console.log(props)}
+    <Link className={styles.link} to={"/home" + props.path_lower}>
       <img className={styles.thumbnail} ref={imgRef} src={isFolder(props[".tag"])} alt="" />
       <div className={styles.meta}>
-        <Link className={styles.link} to={"/home" + props.path_lower}><p className={styles.fileName}> {props.name} </p></Link>
+        <p className={styles.fileName}> {props.name} </p>
         <div>
-        <button className={styles.starIcon}><i className="icon ion-md-star-outline"></i></button>
+        <button className={styles.starIcon}><i className="icon ion-md-star"></i></button>
         </div>
         <div className={styles.metadata}>
           <p className={styles.timestamp}> {timeCheck(props.server_modified)}</p>
           <p className={styles.size}> {size(props.size)} </p>
         </div>
       </div>
+      </Link>
     </div>
   )
 }
