@@ -56,9 +56,7 @@ const Card = (props) => {
       <img className={styles.thumbnail} ref={imgRef} src={isFolder(tag)} alt="" />
       <div className={styles.meta}>
         <p className={styles.fileName}> {props.name} </p>
-        <div>
-        
-        </div>
+        <button className={styles.starIcon}><i className="icon ion-md-star"></i></button>
         <div className={styles.metadata}>
           <p className={styles.timestamp}> {timeCheck(props.server_modified)}</p>
           <p className={styles.size}> {size(props.size)} </p>
