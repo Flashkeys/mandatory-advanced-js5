@@ -25,9 +25,11 @@
   flex-wrap: wrap;  
   padding: 10px;
 }
+
 .homeText {
   font-family: "Asap";
 }
+
 .inputHeader {
   display: inline-block;  
 }

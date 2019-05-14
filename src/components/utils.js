@@ -1,12 +1,9 @@
 export default function parseQueryString(str) { // Används till Auth.js
   let ret = Object.create(null);
-
   if (typeof str !== 'string') {
     return ret;
   }
-
   str = str.trim().replace(/^(\?|#|&)/, '');
-
   if (!str) {
     return ret;
   }

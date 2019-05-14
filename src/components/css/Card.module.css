@@ -9,35 +9,43 @@
 	box-shadow: 0 1px 1px 0 rgba(0,0,0,0.07), 0 2px 1px -1px rgba(0,0,0,0.06), 0 1px 3px 0 rgba(0,0,0,0.10);
 	position: relative;
 }
+
 .thumbnail {
 	width: 200px;
 	height: 150px;
 }
+
 .fileName {
 	font-weight: bold;
 }
+
 .timestamp {
 	color: grey;
 }
+
 .link {
 	color: #5BA8E9;
 	text-decoration: none;
 	text-transform: capitalize;
 }
+
 .link:visited {
 	color: #5BA8E9;
 }
+
 .meta {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 }
+
 .metadata {
 	color: grey;
 	display: flex;
 	justify-content: space-evenly;
 	width:100%;
 }
+
 .starIcon {
 	position: absolute;
 	top: 0;
@@ -48,6 +56,7 @@
 	border: none;
 	cursor: pointer;
 }
+
 .starIcon > i{
 	font-size: 24px;
 	color: #5BA8E9;

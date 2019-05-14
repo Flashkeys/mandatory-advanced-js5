@@ -3,7 +3,6 @@ import styles from './css/Card.module.css';
 import Moment from 'moment';
 import { Link } from "react-router-dom";
 import { size } from "./utils";
-import Modal from "./Modal";
 
 const Card = (props) => {
 
