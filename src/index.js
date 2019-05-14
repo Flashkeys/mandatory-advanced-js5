@@ -13,7 +13,6 @@ const Index = () => {
       <Route path="/home/" component={Home} />
       <Route exact path="/" render={() => <Login />} />
       <Route path="/auth" render={() => <Auth />} />     
-      
     </Switch>
   )
 }
