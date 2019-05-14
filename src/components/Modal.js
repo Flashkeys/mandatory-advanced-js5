@@ -31,11 +31,8 @@ const CreateFolder = (props) =>{
 console.log(input);
 
 const changeInput = (e) => {
-  updateInput(e.target.value)
- 
-  
+  updateInput(e.target.value) 
 }
-  console.log("createfolder");
 
   const createFolders = () =>{
 
@@ -48,7 +45,7 @@ const changeInput = (e) => {
     option,
   );
   dbx.filesCreateFolderV2({
-    path: '/home' + 'test',
+    path: "/" + input,
   })
   .then(response => { 
     console.log(response)

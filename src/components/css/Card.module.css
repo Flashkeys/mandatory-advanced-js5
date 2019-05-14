@@ -41,14 +41,17 @@
 	width:100%;
 }
 .starIcon {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 10px 15px;
+	background: transparent;
 	width: min-content;
-	text-align: center;
 	border: none;
-	background-color: white;
-}
-.starIcon:hover {
 	cursor: pointer;
 }
-.starIcon i{
-	font-size: 20px;
+
+.starIcon > i{
+	font-size: 24px;
+	color: #5BA8E9;
 }
