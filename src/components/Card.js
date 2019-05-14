@@ -65,7 +65,7 @@ const Card = (props) => {
         </div>
       </div>
       </Link>
-      <button className={styles.starIcon}><i className="icon ion-md-star-outline"></i></button>
+      <button className={styles.starIcon}><i className="icon ion-ios-star-outline"></i></button>
     </div>
   )
 }
