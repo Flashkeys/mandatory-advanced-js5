@@ -39,7 +39,7 @@ const Sidebar = () => {
         <progress id="file" max="100" value="70"> 70% </progress>
       </div>
       
-   {isShowing ? <Modal togle={togleModal}  type={type} folder={window.location.pathname}/> : null}
+   {isShowing ? <Modal togle={togleModal}  type={type} /> : null}
     </div>
   )
 }
