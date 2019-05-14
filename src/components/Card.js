@@ -3,6 +3,7 @@ import styles from './css/Card.module.css';
 import Moment from 'moment';
 import { Link } from "react-router-dom";
 import { size } from "./utils";
+import Modal from "./Modal";
 
 const Card = (props) => {
 
@@ -14,7 +15,7 @@ const Card = (props) => {
     }
   }
 
-  function isFile(tag) {
+  function isFile(tag) { 
     if (tag === "file") {
       const ACCESS_TOKEN = props.dbx.accessToken;
       const FILE_PATH = "/"
@@ -61,7 +62,7 @@ const Card = (props) => {
         </div>
       </div></Link>
       
-      { isShowing ? <Modal /> : null }
+   
     </div>
 
     
