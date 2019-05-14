@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import styles from './css/Sidebar.module.css';
 import logo from "../logo.png";
 import Modal from "./Modal";
-   
-const Sidebar = () => {
+
+const Sidebar = (props) => {
   const  [isShowing, updateIsShowing ] = useState(false);
   const [type, updateType] = useState(""); // => uploadFile
 
@@ -40,7 +40,7 @@ const Sidebar = () => {
       </div>
       
    {isShowing ? <Modal togle={togleModal}  type={type} /> : null}
-    </div>
+     </div>
   )
 }
 export default Sidebar

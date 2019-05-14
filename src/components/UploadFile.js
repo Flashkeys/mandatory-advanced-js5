@@ -6,6 +6,7 @@ import styles from './css/modal.module.css';
 
 
 const UploadFile = (props) => {
+    const pathName = window.location.pathname.substring(5);
     const fileSizeLimit = 150 * 1024 * 1024;
     const fileRef = useRef(null);
     const uploadFile = (e) => {
@@ -20,7 +21,9 @@ const UploadFile = (props) => {
         option,
       );
       if (file.size < fileSizeLimit) { // File is smaller than 150 Mb - use filesUpload API
-        dbx.filesUpload({ path: '/' + file.name, contents: file })
+        dbx.filesUpload({ 
+            path: pathName + "/" + file.name,
+             contents: file })
           .then(function (response) {
             console.log(response);
           })
@@ -50,10 +53,11 @@ const UploadFile = (props) => {
         <div className={styles.modalBody}>
   
           <input type="file" ref={fileRef} multiple></input>
-          <button type="button" className={styles.uploadFileButton} onClick={uploadFile} >Upload File</button>
+          
         </div>
         <div className={styles.modalFooter}>
           <button type="button" className={styles.cancelButton} data-dismiss="modal" aria-label="Close" onClick={props.togle}  >Cancel</button>
+          <button type="button" className={styles.uploadFileButton} onClick={uploadFile} >Upload File</button>
         </div>
       </>
     )

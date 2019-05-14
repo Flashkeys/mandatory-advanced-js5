@@ -4,6 +4,10 @@ import { Dropbox } from 'dropbox';
 import { token$ } from "./store";
 import styles from './css/modal.module.css';
 const CreateFolder = (props) => {
+
+    const pathName = window.location.pathname.substring(5);
+    
+    
     const [input, updateInput] = useState('');
     console.log(input);
   
@@ -21,7 +25,7 @@ const CreateFolder = (props) => {
         option,
       );
       dbx.filesCreateFolderV2({
-        path: "/" + input,
+        path: pathName + "/" + input,
       })
         .then(response => {
           console.log(response)
