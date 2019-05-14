@@ -14,10 +14,7 @@ function Main(match) {
 
   function updateFiles(pathName) {
     if (pathName !== match.url) { // Kollar om sökvägen inte är match.url ("/home/" eller "/home"), dvs att man går djupare
-    // Vi behöver bygga en snyggare funktion som hanterar urler bättre.
-    // Har just nu problem med mapp-namn som innehåller mellanslag, där URLen blir "/mapp/mapp%20med%20mellanslag/"
-    // I övrigt funkar det som tänkt nu.
-    const fixedPathName = pathName.substring(5); // Städar bort "/home" ur URLen
+    const fixedPathName = pathName.substring(5); // substring städar bort "/home" ur URLen
       dbx.filesListFolder({ path: decodeURI(fixedPathName) }) 
         .then((res) => {
           updateEntries(res.entries);
@@ -41,6 +38,8 @@ function Main(match) {
     updateEntries([]);
   }
 
+  // Om du inte är inloggad skickar den dig till root, som ber en logga in. 
+  // Root kollar motsatsen till detta, har du token$.value så skickar den dig till home.
   if (token$.value === null) {
     return <Redirect to="/" />
   } 
