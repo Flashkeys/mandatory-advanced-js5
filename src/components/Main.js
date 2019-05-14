@@ -6,14 +6,14 @@ import styles from "./css/Main.module.css";
 import Dropbox from 'dropbox';
 import Card from "./Card";
 
-
 function Main(match) {
   const [entries, updateEntries] = useState([]);
   const dbx = new Dropbox.Dropbox({ accessToken: token$.value });
   const pathName = window.location.pathname;
   
-  useEffect(() => {
-  if (pathName !== match.url) { // Kollar om sökvägen inte är match.url ("/home/" eller "/home"), dvs att man går djupare
+
+  function updateFiles(pathName) {
+    if (pathName !== match.url) { // Kollar om sökvägen inte är match.url ("/home/" eller "/home"), dvs att man går djupare
     // Vi behöver bygga en snyggare funktion som hanterar urler bättre.
     // Har just nu problem med mapp-namn som innehåller mellanslag, där URLen blir "/mapp/mapp%20med%20mellanslag/"
     // I övrigt funkar det som tänkt nu.
@@ -36,6 +36,10 @@ function Main(match) {
       })
     // För att rensa ut varningsmeddelandet om outer scope på pathName
     // eslint-disable-next-line
+  }
+
+  useEffect(() => {
+    updateFiles(pathName);
   }, [pathName]);
 
   const logOut = () => {
@@ -77,12 +81,8 @@ function Main(match) {
         {entries.map((entry) => (
           <Card
             key={entry.id}
-            entry={entry}
-            name={entry.name}
-            src="https://picsum.photos/200/150"
-            id={entry.id}
-            server_modified={entry.server_modified}
-            dbx={dbx}
+            dbx={dbx} //src till thumbnail
+            {...entry}
           />
         ))}
       </div>

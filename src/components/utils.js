@@ -75,7 +75,7 @@ export function backButton(path) {
 }
 export function size(bytes) { //används till Card.js
   let sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
-console.log(bytes);
+  //console.log(bytes);
   if (bytes === undefined) 
     return null;
 
@@ -85,3 +85,6 @@ console.log(bytes);
   let i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
    return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
 };
+
+
+

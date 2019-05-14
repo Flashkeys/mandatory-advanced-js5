@@ -1,6 +1,6 @@
 .newCard {
   width: 200px;
-  height: 280px;
+  height: 300px;
 	margin: 5px;
 	padding: 5px;
 	background-color: white;
@@ -38,7 +38,17 @@
 	color: grey;
 	display: flex;
 	justify-content: space-evenly;
-	position: absolute;
-	bottom: 3px;
 	width:100%;
+}
+.starIcon {
+	width: min-content;
+	text-align: center;
+	border: none;
+	background-color: white;
+}
+.starIcon:hover {
+	cursor: pointer;
+}
+.starIcon i{
+	font-size: 20px;
 }

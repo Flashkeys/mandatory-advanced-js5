@@ -10,7 +10,7 @@ const Card = (props) => {
     if (tag === "folder") {
       return "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLfDzP9UsOfVcePDGDEmNKNT9Cz7rhBw0QM-GmzTH7bDxfhMZ7TA";
     } else {
-      return props.src
+      return getThumbnail(props.path_display)
     }
   }
 
@@ -25,6 +25,17 @@ const Card = (props) => {
     }
   }
 
+  const imgRef = React.useRef();
+  function getThumbnail(src) {
+    props.dbx.filesGetThumbnail({ path: src })
+      .then((res) => {
+        const thumb = URL.createObjectURL(res.fileBlob);
+        imgRef.current.src = thumb;
+
+      })
+  };
+
+
   function timeCheck(time) {
     if (time === undefined) {
       return "";
@@ -37,18 +48,19 @@ const Card = (props) => {
 
   return ( // img, filename, tag, server_modified, id
     <div className={styles.newCard}>
-    {console.log(props)}
-      <img className={styles.thumbnail} src={isFolder(tag)} alt="" />
-      <div className={styles.meta}>
-        <Link className={styles.link} onClick={() => isFile(tag)} to={"/home" + props.entry.path_lower}><p className={styles.fileName}> {props.name} </p></Link>
+      {console.log(props)}
+      <Link className={styles.link} onClick={() => isFile(tag)} to={"/home" + props.entry.path_lower}>
+        <img className={styles.thumbnail} src={isFolder(tag)} alt="" />
+        <div className={styles.meta}>
+          <p className={styles.fileName}> {props.name} </p></Link>
         <div className={styles.metadata}>
           <p className={styles.timestamp}> {timeCheck(props.server_modified)}</p>
-          <p className={styles.size}> {size(props.entry.size)} </p>
+          <p className={styles.size}> {size(props.size)} </p>
         </div>
       </div>
     </div>
 
-    {isShowing ? <Modal /> : null}
+    { isShowing ? <Modal /> : null }
 
   )
 }
