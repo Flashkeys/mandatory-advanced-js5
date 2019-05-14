@@ -21,7 +21,9 @@ const Card = (props) => {
         .then((res) => {
             const thumb = URL.createObjectURL(res.fileBlob);
             imgRef.current.src = thumb;
-
+        })
+        .catch(err => {
+          console.log(err);
         })
   };
 
