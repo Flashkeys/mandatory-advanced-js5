@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './css/Card.module.css';
 import Moment from 'moment';
 import { Link } from "react-router-dom";
 import { size } from "./utils";
+import Modal from "./Modal";
 
 const Card = (props) => {
+
+  const [starIcon, updateStarIcon] = useState(false);
 
   function isFolder(tag) {
     if (tag === "folder") {
@@ -14,6 +17,16 @@ const Card = (props) => {
     }
   }
 
+  function isFile(tag) { 
+    if (tag === "file") {
+      const ACCESS_TOKEN = props.dbx.accessToken;
+      const FILE_PATH = "/"
+      props.dbx.filesDownload({ path: decodeURI(props.entry.path_lower) })
+        .then(data => {
+          console.log(data);
+        })
+    }
+  }
 
  const imgRef = React.useRef();
  function getThumbnail (src) {
@@ -21,7 +34,9 @@ const Card = (props) => {
         .then((res) => {
             const thumb = URL.createObjectURL(res.fileBlob);
             imgRef.current.src = thumb;
-
+        })
+        .catch(err => {
+          console.log(err);
         })
   };
 
@@ -34,21 +49,22 @@ const Card = (props) => {
     }
   }
 
+  const tag = props[".tag"];
 
   return ( // img, filename, tag, server_modified, id
     <div className={styles.newCard}>
     {console.log(props)}
-      <img className={styles.thumbnail} ref={imgRef} src={isFolder(props[".tag"])} alt="" />
+    <Link className={styles.link} onClick={() => isFile(tag)} to={"/home" + props.path_lower}>
+      <img className={styles.thumbnail} ref={imgRef} src={isFolder(tag)} alt="" />
       <div className={styles.meta}>
-        <Link className={styles.link} to={"/home" + props.path_lower}><p className={styles.fileName}> {props.name} </p></Link>
-        <div>
-        <button className={styles.starIcon}><i className="icon ion-md-star-outline"></i></button>
-        </div>
+        <p className={styles.fileName}> {props.name} </p>
         <div className={styles.metadata}>
           <p className={styles.timestamp}> {timeCheck(props.server_modified)}</p>
           <p className={styles.size}> {size(props.size)} </p>
         </div>
       </div>
+      </Link>
+      <button className={styles.starIcon}><i className="icon ion-md-star-outline"></i></button>
     </div>
   )
 }

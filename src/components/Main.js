@@ -25,9 +25,15 @@ function Main(match) {
     } else { // Om det är /home eller /home/ så hämtas root här
       dbx.filesListFolder({ path: "" })
         .then((res) => {
-          updateEntries(res.entries);
+          updateEntries(res.entries);          
         })
     }
+
+    dbx.filesGetThumbnail({ path: "/354.jpg" })
+      .then(x => {
+        console.log(x);
+        console.log(URL.createObjectURL(x.fileBlob))
+      })
     // För att rensa ut varningsmeddelandet om outer scope på pathName
     // eslint-disable-next-line
   }
@@ -43,8 +49,8 @@ function Main(match) {
 
   if (token$.value === null) {
     return <Redirect to="/" />
-  }
-
+  } 
+  
   return (
     <div>
       <div className={styles.topBar}>
