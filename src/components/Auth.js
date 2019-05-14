@@ -18,7 +18,7 @@ const Auth = () => {
     return (
         <>
             <div className="auth">
-                <h1>Login</h1>
+                <h1>Loading...</h1>
             </div>
         </>
     )

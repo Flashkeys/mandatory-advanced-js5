@@ -72,9 +72,49 @@ const changeInput = (e) => {
   )
 }
 const UploadFile = (props) =>{
+  const fileRef = useRef(null);
+  console.log(fileRef);
+  
+  const uploadFile = (e) =>{
+e.preventDefault();
+const uploadedFiles = fileRef.current.files;
+    
+  const option = {
+    fetch: fetch,
+    accessToken: token$.value,
+
+  };
+  const dbx = new Dropbox(
+    option,
+  );
+  dbx.filesUpload({
+    contents: uploadedFiles,
+    path: '/' + uploadedFiles
+  })
+  .then(response => { 
+    console.log(response)
+  })
+
+  }
+
+
   return (
     <>
-    <div> upload</div>
+       <div className={styles.modalHeader}>
+            <span><i className="fas fa-file"></i>     Upload New File</span>
+            <button type="button" className={styles.modalCloseButton} data-dismiss="modal" aria-label="Close"  onClick={props.togle}>
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div className={styles.modalBody}>
+            
+            <input type="file" ref={fileRef}  multiple></input>
+          <button type="button" className={styles.uploadFileButton} onClick={uploadFile} >Upload File</button>
+          </div>
+          <div className={styles.modalFooter}>
+            <button type="button" className={styles.cancelButton} data-dismiss="modal" aria-label="Close" onClick={props.togle}  >Cancel</button>
+            <button type="button" className={styles.createButton}>Done</button>
+          </div>
     </>
   )
 }
