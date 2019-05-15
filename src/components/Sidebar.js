@@ -32,6 +32,7 @@ const Sidebar = (props) => {
             <button  className={styles.openButton} id="createFolder" onClick={togleModal}>Create Folder</button>
             <button  className={styles.openButton} id="uploadFile" onClick={togleModal}>Upload File</button>
           </div>
+          <Link to="/favorites">Favorites</Link>
         </div>
       </div>
       <div className={styles.storageBox}>
