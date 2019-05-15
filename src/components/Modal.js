@@ -1,6 +1,4 @@
-import React, { useState, useRef } from 'react';
-import { Dropbox } from 'dropbox';
-import { token$ } from "./store";
+import React from 'react';
 import styles from './css/modal.module.css';
 import CreateFolder from './CreateFolder';
 import UploadFile from './UploadFile';

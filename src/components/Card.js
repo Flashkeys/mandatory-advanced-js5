@@ -1,12 +1,23 @@
 import React, { useState } from 'react';
-
-import styles from './css/Card.module.css';
 import Moment from 'moment';
 import { Link } from "react-router-dom";
 import { size } from "./utils";
+import DropDownModal from "./DropDownModal";
+import styles from './css/Card.module.css';
 import { Dropdown } from "react-bootstrap";
 const Card = (props) => {
+  const  [isShowing, updateIsShowing ] = useState(false);
+  const [type, updateType] = useState(""); // => uploadFile
 
+  const togleModal = (e) =>{
+    const type = e.target.id; // => "uploadFile"
+    console.log(type);
+    
+    updateIsShowing(!isShowing)
+    updateType(type);
+    console.log("togle");
+    
+  }
   const [starIcon, updateStarIcon] = useState(props.id === localStorage.getItem(props.id));
 
   function downloadFile() {
@@ -102,20 +113,16 @@ const Card = (props) => {
           </Dropdown.Toggle>
 
           <Dropdown.Menu>  
-            <Dropdown.Item href="#/action-1">New</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">Open...</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Save as...</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Rename</Dropdown.Item>
-            <Dropdown.Item href="#/action-3"><i className="fas fa-copy" style={{marginRight:"9px"}}></i>Make a copy</Dropdown.Item>
-            <Dropdown.Item href="#/action-3"><i className="fas fa-arrows-alt" style={{marginRight:"9px"}}></i>Move to folder</Dropdown.Item>
-            <Dropdown.Item href="#/action-3"><i className="fas fa-trash" style={{marginRight:"9px"}}></i> Delete</Dropdown.Item>
+            <Dropdown.Item onClick={togleModal} id="createNewFolder" href="#/action-1">New</Dropdown.Item>
             <Dropdown.Divider />
-            <Dropdown.Item href="#/action-3">Download As...</Dropdown.Item>
-            
+            <Dropdown.Item onClick={togleModal} id="renameFolder"  href="#/action-3"><i className="fas fa-edit" style={{marginRight:"9px"}}></i>Rename</Dropdown.Item>
+            <Dropdown.Item onClick={togleModal} id="copyFolder"  href="#/action-3"><i className="fas fa-copy" style={{marginRight:"9px"}}></i>Make a copy</Dropdown.Item>
+            <Dropdown.Item onClick={togleModal} id="moveFolder"  href="#/action-3"><i className="fas fa-arrows-alt" style={{marginRight:"9px"}}></i>Move to folder</Dropdown.Item>
+            <Dropdown.Item onClick={togleModal} id="deleteFolder" href="#/action-3"><i className="fas fa-trash" style={{marginRight:"9px"}}></i> Delete</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
       </div>
-
+{isShowing ? <DropDownModal togle={togleModal}  type={type} /> : null}
     </div>
   )
 }
