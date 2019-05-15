@@ -8,9 +8,29 @@ import Card from "./Card";
 
 function Main(match) {
   const [entries, updateEntries] = useState([]);
+  const [filterdEntries, updatefilterdEntries] = useState([]);
+  const [favoritesShow, updateFavoritesShow] = useState(false);
+
+  const [searchInput, updateSearchInput] = useState("");
   const dbx = new Dropbox.Dropbox({ accessToken: token$.value });
   const pathName = window.location.pathname;
 
+  useEffect(() => {
+    if (searchInput) {
+      updatefilterdEntries(entries.filter(entry => entry.name.toLowerCase().startsWith(searchInput.toLowerCase())))
+    } else if (!favoritesShow) {
+      updatefilterdEntries(entries)
+    }
+  }, [searchInput, entries, favoritesShow]);
+
+  useEffect(() => {
+    if (favoritesShow) {
+      updatefilterdEntries(entries.filter(entry => localStorage.getItem(entry.id)))
+    } else {
+      updatefilterdEntries(entries)
+    }
+
+  },[favoritesShow, entries]);
 
   function updateFiles(pathName) {
     if (pathName !== match.url) { // Kollar om sökvägen inte är match.url ("/home/" eller "/home"), dvs att man går djupare
@@ -61,12 +81,13 @@ function Main(match) {
               return (<Link className={styles.bcLink} key={x.path} to={x.path}>{decodeURI(x.name)} <i className="fas fa-chevron-right"></i></Link>)
             })}
           </p>
+          <button onClick={() => updateFavoritesShow(!favoritesShow) }>Favorites</button>
           <div className={styles.inputHeader}>
             <div className={styles.inputSearch}>
               <div className={styles.iconSearch}>
                 <i className="icon ion-md-search"></i>
               </div>
-              <input type="text" placeholder="Search..." className={styles.inputSearchInput} />
+              <input type="text" placeholder="Search..." value={searchInput} onChange={(e) => updateSearchInput(e.target.value)} className={styles.inputSearchInput} />
             </div>
           </div>
         </div>
@@ -74,7 +95,7 @@ function Main(match) {
       </div>
 
       <div className={styles.mainContainer}>
-        {entries.map((entry) => (
+        {filterdEntries.map((entry) => (
           <Card
             key={entry.id}
             id={entry.id}
