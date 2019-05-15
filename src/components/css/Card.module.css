@@ -1,6 +1,6 @@
 .newCard {
   width: 200px;
-  height: 250px;
+  height: 300px;
 	margin: 5px;
 	padding: 5px;
 	background-color: white;
@@ -11,10 +11,14 @@
 	display: flex;
 	flex-direction: column;
 }
-
+.newCard:hover {
+    background-color: #5ba8e903;
+	box-shadow: 0px 0px 15px 0px #5ba8e91c;
+}
 .thumbnail {
-	width: 200px;
-	height: 150px;
+    width: 150px;
+    height: 100px;
+    margin: 40px 0px 23px 19px;
 }
 
 .fileName {
@@ -59,7 +63,7 @@
 	width: 100%;
 	position: absolute;
 	padding: 0 10px;
-	bottom: 5px;
+	bottom: 37px;
 }
 
 .metadata > p {
