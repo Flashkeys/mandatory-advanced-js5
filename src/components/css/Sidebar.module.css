@@ -7,7 +7,8 @@
     padding: 20px;
     display: flex;
     flex-direction: column;
-    position: relative;
+    position: sticky;
+    top: 1px;
 }
 .h3 {
     color: #303030;
