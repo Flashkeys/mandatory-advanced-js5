@@ -116,8 +116,8 @@ const Card = (props) => {
             <Dropdown.Item onClick={togleModal} id="createNewFolder" href="#/action-1">New</Dropdown.Item>
             <Dropdown.Divider />
             <Dropdown.Item onClick={togleModal} id="renameFolder"  href="#/action-3"><i className="fas fa-edit" style={{marginRight:"9px"}}></i>Rename</Dropdown.Item>
-            <Dropdown.Item onClick={togleModal} id="copyFolder"  href="#/action-3"><i className="fas fa-copy" style={{marginRight:"9px"}}></i>Make a copy</Dropdown.Item>
-            <Dropdown.Item onClick={togleModal} id="moveFolder"  href="#/action-3"><i className="fas fa-arrows-alt" style={{marginRight:"9px"}}></i>Move to folder</Dropdown.Item>
+            <Dropdown.Item onClick={togleModal} id="copyFolder"  href="#/action-3"><i className="fas fa-copy" style={{marginRight:"9px"}}></i>Copy</Dropdown.Item>
+            <Dropdown.Item onClick={togleModal} id="moveFolder"  href="#/action-3"><i className="fas fa-arrows-alt" style={{marginRight:"9px"}}></i>Move</Dropdown.Item>
             <Dropdown.Item onClick={togleModal} id="deleteFolder" href="#/action-3"><i className="fas fa-trash" style={{marginRight:"9px"}}></i> Delete</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>

@@ -38,7 +38,11 @@
 .link:visited {
 	color: #5BA8E9;
 }
-
+.link:hover {
+	color: #5BA8E9;
+    text-decoration: none;
+    text-transform: capitalize;
+}
 .fileLink {
 	color: #5BA8E9;
 	background: transparent;
