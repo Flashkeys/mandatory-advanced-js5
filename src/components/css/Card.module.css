@@ -18,7 +18,7 @@
 }
 
 .fileName {
-	font-weight: bold;
+	font-weight: 400;
 }
 
 .timestamp {
@@ -52,17 +52,27 @@
 }
 
 .metadata {
+	box-sizing: border-box;
 	color: grey;
 	display: flex;
 	justify-content: space-between;
-	width:100%;
+	width: 100%;
+	position: absolute;
+	padding: 0 10px;
+	bottom: 5px;
+}
+
+.metadata > p {
+	margin: 0;
+	padding-right: 12px;
+	padding-left: 2px;
 }
 
 .starIcon {
 	position: absolute;
+	right: 0;
 	top: 0;
-	left: 0;
-	padding: 10px 15px;
+	padding: 10px;
 	background: transparent;
 	width: min-content;
 	border: none;
@@ -72,4 +82,5 @@
 .starIcon > i{
 	font-size: 24px;
 	color: #5BA8E9;
+	mix-blend-mode: difference;
 }

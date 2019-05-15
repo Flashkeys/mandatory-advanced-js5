@@ -10,19 +10,19 @@ function Main(match) {
   const [entries, updateEntries] = useState([]);
   const dbx = new Dropbox.Dropbox({ accessToken: token$.value });
   const pathName = window.location.pathname;
-  
+
 
   function updateFiles(pathName) {
     if (pathName !== match.url) { // Kollar om sökvägen inte är match.url ("/home/" eller "/home"), dvs att man går djupare
-    const fixedPathName = pathName.substring(5); // substring städar bort "/home" ur URLen
-      dbx.filesListFolder({ path: decodeURI(fixedPathName) }) 
+      const fixedPathName = pathName.substring(5); // substring städar bort "/home" ur URLen
+      dbx.filesListFolder({ path: decodeURI(fixedPathName) })
         .then((res) => {
           updateEntries(res.entries);
         })
     } else { // Om det är /home eller /home/ så hämtas root här
       dbx.filesListFolder({ path: "" })
         .then((res) => {
-          updateEntries(res.entries);          
+          updateEntries(res.entries);
         })
     }
   }
@@ -42,31 +42,31 @@ function Main(match) {
   // Root kollar motsatsen till detta, har du token$.value så skickar den dig till home.
   if (token$.value === null) {
     return <Redirect to="/" />
-  } 
-  
+  }
+
   return (
     <div>
       <div className={styles.topBar}>
 
         <div className={styles.profileBar}>
         </div>
-        <button className={styles.logoutButton} onClick={logOut}><i className="fas fa-sign-out-alt"></i> SIGN OUT </button>
-        
+        <button className={styles.logoutButton} onClick={logOut}><i class="icon ion-md-log-out"></i> Logout</button>
+
         <div className={styles.searchBar}>
-          <h3 className={styles.homeText}>
+          <p className={styles.homeText}>
             {backButton(pathName).map((x) => {
-              return <Link className={styles.backButton} to={x.path}><i className="icon ion-md-arrow-round-up"></i></Link>
+              return <Link key={x.path} className={styles.backButton} to={x.path}><i className="fas fa-arrow-alt-circle-up"></i></Link>
             })}
             {breadcrumbs(pathName).map((x) => { // breadcrumbs skapar en array med objekt från pathname ("/home/path/path"), finns i utils.js
-            return (<Link className={styles.bcLink} key={x.path} to={x.path}>{decodeURI(x.name)} <i class="fas fa-angle-right"></i> </Link>)
+              return (<Link className={styles.bcLink} key={x.path} to={x.path}>{decodeURI(x.name)} <i class="fas fa-chevron-right"></i></Link>)
             })}
-          </h3>
+          </p>
           <div className={styles.inputHeader}>
             <div className={styles.inputSearch}>
-              <input type="text" placeholder="Search..." className={styles.inputSearchInput} />
               <div className={styles.iconSearch}>
                 <i className="icon ion-md-search"></i>
               </div>
+              <input type="text" placeholder="Search..." className={styles.inputSearchInput} />
             </div>
           </div>
         </div>

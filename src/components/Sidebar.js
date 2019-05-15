@@ -20,10 +20,10 @@ const Sidebar = (props) => {
 
   return (
     <div className={styles.container}>
+      <Link to="/home/" className={styles.logoContainer}>
+        <img src={logo} className={styles.logo} alt=""/>
+      </Link>
       <div>
-        <Link to="/home/">
-          <img src={logo} className={styles.logo} alt=""/>
-        </Link>
         <div className={styles.main}>
           <h3 className={styles.h3}>Meny</h3>
           <div className={styles.Links}>
@@ -34,9 +34,9 @@ const Sidebar = (props) => {
           </div>
         </div>
       </div>
-      <div className={styles.storageHeader}>
-        <p> / 2 GB</p>
-        <progress id="file" max="100" value="70"> 70% </progress>
+      <div className={styles.storageBox}>
+        <p>1.2 / 2 GB used</p>
+        <progress className={styles.storageProgress} id="file" max="100" value="70"> 70% </progress>
       </div>
       
    {isShowing ? <Modal togle={togleModal}  type={type} /> : null}
