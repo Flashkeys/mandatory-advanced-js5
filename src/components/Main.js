@@ -50,7 +50,7 @@ function Main(match) {
 
         <div className={styles.profileBar}>
         </div>
-        <button className={styles.logoutButton} onClick={logOut}><i class="icon ion-md-log-out"></i> Logout</button>
+        <button className={styles.logoutButton} onClick={logOut}><i className="icon ion-md-log-out"></i> Logout</button>
 
         <div className={styles.searchBar}>
           <p className={styles.homeText}>
@@ -58,7 +58,7 @@ function Main(match) {
               return <Link key={x.path} className={styles.backButton} to={x.path}><i className="fas fa-arrow-alt-circle-up"></i></Link>
             })}
             {breadcrumbs(pathName).map((x) => { // breadcrumbs skapar en array med objekt från pathname ("/home/path/path"), finns i utils.js
-              return (<Link className={styles.bcLink} key={x.path} to={x.path}>{decodeURI(x.name)} <i class="fas fa-chevron-right"></i></Link>)
+              return (<Link className={styles.bcLink} key={x.path} to={x.path}>{decodeURI(x.name)} <i className="fas fa-chevron-right"></i></Link>)
             })}
           </p>
           <div className={styles.inputHeader}>

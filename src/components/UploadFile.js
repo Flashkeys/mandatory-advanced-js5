@@ -9,9 +9,12 @@ const UploadFile = (props) => {
     const pathName = window.location.pathname.substring(5);
     const fileSizeLimit = 150 * 1024 * 1024;
     const fileRef = useRef(null);
+    const [progress, updateProgress] = useState(0);
+
     const uploadFile = (e) => {
       e.preventDefault();
       const file = fileRef.current.files[0];
+      
       console.log(file);
       const option = {
         fetch: fetch,
@@ -23,11 +26,17 @@ const UploadFile = (props) => {
       if (file.size < fileSizeLimit) { // File is smaller than 150 Mb - use filesUpload API
         dbx.filesUpload({ 
             path: pathName + "/" + file.name,
-             contents: file })
+             contents: file ,
+             onUploadProgress: e => {
+                updateProgress(e.loaded / e.total);
+              }
+            })
           .then(function (response) {
+            updateProgress(0);
             console.log(response);
           })
           .catch(function (error) {
+            updateProgress(0);
             console.error(error);
           });
       } else { // File is bigger than 150 Mb - use filesUploadSession* API
@@ -53,7 +62,7 @@ const UploadFile = (props) => {
         <div className={styles.modalBody}>
   
           <input type="file" ref={fileRef} multiple></input>
-          
+          <progress value={progress} max={1} />
         </div>
         <div className={styles.modalFooter}>
           <button type="button" className={styles.cancelButton} data-dismiss="modal" aria-label="Close" onClick={props.togle}  >Cancel</button>

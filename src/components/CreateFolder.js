@@ -30,6 +30,7 @@ const CreateFolder = (props) => {
         .then(response => {
           console.log(response)
         })
+        
     }
     return (
       <>
@@ -46,7 +47,7 @@ const CreateFolder = (props) => {
         </div>
         <div className={styles.modalFooter}>
           <button type="button" className={styles.cancelButton} data-dismiss="modal" aria-label="Close" onClick={props.togle}  >Cancel</button>
-          <button type="button" className={styles.createButton} onClick={createFolders} >Create</button>
+          <button type="button" className={styles.createButton} onClick={createFolders}  >Create</button>
         </div>
       </>
     )
