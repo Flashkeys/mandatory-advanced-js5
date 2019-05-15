@@ -3,8 +3,25 @@ import ReactDOM from 'react-dom';
 import { Dropbox } from 'dropbox';
 import { token$ } from "./store";
 import styles from './css/dropDownModal.module.css';
-const DeleteFolder = (props) => {
- 
+const DeleteFolder = (props,e) => {
+  console.log(e.target);
+  const deleteFF = (e) =>{
+  
+   
+  // const option = {
+  //   fetch: fetch,
+  //   accessToken: token$.value
+  // };
+
+  // const dbx = new Dropbox(
+  //   option,
+  // );
+
+  // dbx.filesDeleteV2({
+  //   path: delFile,
+  // })
+
+ }
      
     return (
       <>
@@ -19,7 +36,7 @@ const DeleteFolder = (props) => {
         </div>
         <div className={styles.modalFooter}>
           <button type="button" className={styles.cancelButton} data-dismiss="modal" aria-label="Close" onClick={props.togle}  >Cancel</button>
-          <button type="button" className={styles.createButton}>Delete</button>
+          <button type="button" className={styles.createButton} onClick={deleteFF}>Delete</button>
         </div>
       </>
     )
