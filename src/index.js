@@ -9,7 +9,7 @@ import Auth from "./components/Auth";
 const Index = () => {
   
   return (
-    <Switch>
+    <Switch basename={process.env.PUBLIC_URL}>
       <Route path="/home/" component={Home} />
       <Route exact path="/" render={() => <Login />} />
       <Route path="/auth" render={() => <Auth />} />     
