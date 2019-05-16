@@ -4,8 +4,8 @@ import { Dropbox } from 'dropbox';
 import { token$ } from "./store";
 import styles from './css/dropDownModal.module.css';
 const MoveFolder = (props) => {
-  const tag = 'props.tag';
-console.log(tag);
+  const tag = props.tag;
+  console.log(tag);
 
   const option = {
     fetch: fetch,
@@ -17,11 +17,10 @@ console.log(tag);
   );
   const pathName = window.location.pathname;
   const [entries, updateEntries] = useState([]);
-console.log(entries[".tag"]);
+  console.log(entries[".tag"]);
 
-
+  
   function updateFiles(pathName) {
-
     const fixedPathName = pathName.substring(5);
     dbx.filesListFolder({ path: decodeURI(fixedPathName) })
       .then((res) => {
@@ -36,41 +35,44 @@ console.log(entries[".tag"]);
     updateFiles(pathName);
 
   }, [pathName]);
-  if (tag === 'folder') { 
+  // if (tag === 'folder') {
     return (
       <>
-        <div className={styles.modalHeader}>
-          <span><i className="fas fa-arrows-alt"></i>Move Folder</span>
-          <button type="button" className={styles.modalCloseButton} data-dismiss="modal" aria-label="Close" onClick={props.togle}>
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div className={styles.modalBody}>
-          <table>
-            <tbody>
-              {entries.map((entry) => (
-                <tr
-                  key={entry.id}
-                  id={entry.id}
-                >
-                  <td>
-                    <i className="fas fa-folder"></i>
-                  </td>
-                  <td>
-                    {entry.name}
-                  </td>
+        
+          <>
+            <div className={styles.modalHeader}>
+              <span><i className="fas fa-arrows-alt"></i>Move Folder</span>
+              <button type="button" className={styles.modalCloseButton} data-dismiss="modal" aria-label="Close" onClick={props.togle}>
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div className={styles.modalBody}>
+              <table>
+                <tbody>
+                  {entries.map((entry) => (
+                    <tr
+                      key={entry.id}
+                      id={entry.id}
+                    >
+                      <td>
+                        <i className="fas fa-folder"></i>
+                      </td>
+                      <td>
+                        {entry.name}
+                      </td>
 
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <div className={styles.modalFooter}>
-          <button type="button" className={styles.cancelButton} data-dismiss="modal" aria-label="Close" onClick={props.togle}  >Cancel</button>
-          <button type="button" className={styles.createButton}>Move</button>
-        </div>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <div className={styles.modalFooter}>
+              <button type="button" className={styles.cancelButton} data-dismiss="modal" aria-label="Close" onClick={props.togle}  >Cancel</button>
+              <button type="button" className={styles.createButton}>Move</button>
+            </div>
+          </>
       </>
     )
-  }
+  // }
 }
 export default MoveFolder;

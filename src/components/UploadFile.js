@@ -66,7 +66,7 @@ const UploadFile = (props) => {
         </div>
         <div className={styles.modalFooter}>
           <button type="button" className={styles.cancelButton} data-dismiss="modal" aria-label="Close" onClick={props.togle}  >Cancel</button>
-          <button type="button" className={styles.uploadFileButton} onClick={uploadFile} >Upload File</button>
+          <button type="button" className={styles.createButton} onClick={uploadFile} >Upload File</button>
         </div>
       </>
     )
