@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom';
 import { Dropbox } from 'dropbox';
 import { token$ } from "./store";
 import styles from './css/dropDownModal.module.css';
+
 const MoveFolder = (props) => {
   const tag = 'props.tag';
-console.log(tag);
+  console.log(tag);
 
   const option = {
     fetch: fetch,
@@ -17,11 +18,10 @@ console.log(tag);
   );
   const pathName = window.location.pathname;
   const [entries, updateEntries] = useState([]);
-console.log(entries[".tag"]);
+  console.log(entries[".tag"]);
 
 
   function updateFiles(pathName) {
-
     const fixedPathName = pathName.substring(5);
     dbx.filesListFolder({ path: decodeURI(fixedPathName) })
       .then((res) => {
@@ -36,7 +36,8 @@ console.log(entries[".tag"]);
     updateFiles(pathName);
 
   }, [pathName]);
-  if (tag === 'folder') { 
+
+  if (tag === 'folder') {
     return (
       <>
         <div className={styles.modalHeader}>
