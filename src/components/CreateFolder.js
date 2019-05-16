@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Dropbox } from 'dropbox';
 import { token$ } from "./store";
 import styles from './css/modal.module.css';
+
 const CreateFolder = (props) => {
 
     const pathName = window.location.pathname.substring(5);

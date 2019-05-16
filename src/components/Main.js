@@ -35,6 +35,12 @@ function Main( props ) {
 
   },[favoritesShow, entries]);
 
+  useEffect(() => {
+    updateFiles(pathName);
+    // För att rensa ut varningsmeddelandet om outer scope på pathName
+    // eslint-disable-next-line
+  }, [pathName]);
+
   function updateFiles(pathName) {
     if (pathName !== match.url) { // Kollar om sökvägen inte är match.url ("/home/" eller "/home"), dvs att man går djupare
       const fixedPathName = pathName.substring(5); // substring städar bort "/home" ur URLen
@@ -49,13 +55,6 @@ function Main( props ) {
         })
     }
   }
-
-  useEffect(() => {
-    updateFiles(pathName);
-    // För att rensa ut varningsmeddelandet om outer scope på pathName
-    // eslint-disable-next-line
-  }, [pathName]);
-
   const logOut = () => {
     updateToken(null);
     updateEntries([]);
