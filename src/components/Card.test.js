@@ -4,8 +4,8 @@ import Adapter from 'enzyme-adapter-react-16';
 import Card from './Card';
 
 Enzyme.configure({ adapter: new Adapter() });
-describe('<MyComponent />', () => {
-  it('renders three <Foo /> components', () => {
+describe('Testing card component', () => {
+  it('It creates a snapshot of the component', () => {
     const wrapper = shallow(<Card />);
     expect(wrapper).toMatchSnapshot();
   });
