@@ -34,7 +34,7 @@ const DeleteFolder = (props,e) => {
           </button>
         </div>
         <div className={styles.modalBody}>
-          <label style={{fontSize: "19px",color: "#67686a"}}> Are you sure you want to delete <strong>dddd</strong> from your Dropbox?</label>  
+          <label style={{fontSize: "19px",color: "#67686a"}}> Are you sure you want to delete <strong>{props.name.substring(1)}</strong> from your Dropbox?</label>  
         </div>
         <div className={styles.modalFooter}>
           <button type="button" className={styles.cancelButton} data-dismiss="modal" aria-label="Close" onClick={props.togle}  >Cancel</button>
