@@ -87,9 +87,6 @@ const Card = (props) => {
       localStorage.removeItem(props.id)
     }
   }
-  function onToggle(isOpen) {
-    console.log(isOpen);
-  }
   return ( // img, filename, tag, server_modified, id
     <div className={styles.newCard}>
 
