@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/mandatory-advanced-js5/static/css/main.b47f6acf.chunk.css",
-    "main.js": "/mandatory-advanced-js5/static/js/main.ba60454a.chunk.js",
-    "main.js.map": "/mandatory-advanced-js5/static/js/main.ba60454a.chunk.js.map",
-    "runtime~main.js": "/mandatory-advanced-js5/static/js/runtime~main.d0f14806.js",
-    "runtime~main.js.map": "/mandatory-advanced-js5/static/js/runtime~main.d0f14806.js.map",
-    "static/js/2.e4aaa328.chunk.js": "/mandatory-advanced-js5/static/js/2.e4aaa328.chunk.js",
-    "static/js/2.e4aaa328.chunk.js.map": "/mandatory-advanced-js5/static/js/2.e4aaa328.chunk.js.map",
-    "index.html": "/mandatory-advanced-js5/index.html",
-    "precache-manifest.d9bb1c409af3df1e19ca7e14e40fa450.js": "/mandatory-advanced-js5/precache-manifest.d9bb1c409af3df1e19ca7e14e40fa450.js",
-    "service-worker.js": "/mandatory-advanced-js5/service-worker.js",
-    "static/css/main.b47f6acf.chunk.css.map": "/mandatory-advanced-js5/static/css/main.b47f6acf.chunk.css.map",
-    "static/media/dropbox-logo.png": "/mandatory-advanced-js5/static/media/dropbox-logo.19daac3e.png",
-    "static/media/logo.png": "/mandatory-advanced-js5/static/media/logo.37da5cfd.png"
+    "main.css": "/static/css/main.458a3e00.chunk.css",
+    "main.js": "/static/js/main.25ceaf4e.chunk.js",
+    "main.js.map": "/static/js/main.25ceaf4e.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
+    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
+    "static/js/2.3250efa9.chunk.js": "/static/js/2.3250efa9.chunk.js",
+    "static/js/2.3250efa9.chunk.js.map": "/static/js/2.3250efa9.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.202526666601f589a50380fcd2259e7b.js": "/precache-manifest.202526666601f589a50380fcd2259e7b.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.458a3e00.chunk.css.map": "/static/css/main.458a3e00.chunk.css.map",
+    "static/media/dropbox-logo.png": "/static/media/dropbox-logo.19daac3e.png",
+    "static/media/logo.png": "/static/media/logo.37da5cfd.png"
   }
 }
