@@ -34,7 +34,7 @@ const Card = (props) => {
 
   // thumbnails
   function getFileType(name) {
-    return name.substring(name.lastIndexOf('.') + 1, name.length).toLowerCase() || name;
+    if (name) return name.substring(name.lastIndexOf('.') + 1, name.length).toLowerCase() || name;
   }
 
   function isFolder(tag, name) {
