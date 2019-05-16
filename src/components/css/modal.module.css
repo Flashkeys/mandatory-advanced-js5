@@ -206,15 +206,41 @@
   }
 
 
-  .uploadFileButton{
-    cursor: pointer;
-    border: 1px solid transparent;
-    padding: 6px 12px;
-    font-size: 14px;
-    line-height: 1.42857143;
-    border-radius: 4px;
-    color: #fff;
-    background-color: #CDDC39;
-    margin-top: 23px;
-    width: 103px;
-  }
+ .cancelButton{
+  cursor: pointer;
+  border: 1px solid transparent;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  border-radius: 4px;
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+  width: 103px;
+}
+.cancelButton:hover{
+  color: #333;
+  background-color: #e6e6e6;
+  border-color: #adadad;
+}
+
+
+.uploadFileButton{
+  cursor: pointer;
+  border: 1px solid transparent;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  border-radius: 4px;
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+  margin-left: 23px;
+  width: 103px;
+}
+
+.uploadFileButton:hover{
+  color: #fff;
+  background-color: #286090;
+  border-color: #204d74;
+}

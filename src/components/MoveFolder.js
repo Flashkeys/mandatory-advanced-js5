@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom';
 import { Dropbox } from 'dropbox';
 import { token$ } from "./store";
 import styles from './css/dropDownModal.module.css';
+
 const MoveFolder = (props) => {
-  const tag = props.tag;
+  const tag = 'props.tag';
   console.log(tag);
 
   const option = {
@@ -35,6 +36,7 @@ const MoveFolder = (props) => {
     updateFiles(pathName);
 
   }, [pathName]);
+
   // if (tag === 'folder') {
     return (
       <>
