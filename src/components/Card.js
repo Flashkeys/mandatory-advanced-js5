@@ -111,16 +111,16 @@ const Card = (props) => {
           </Dropdown.Toggle>
 
           <Dropdown.Menu>  
-            <Dropdown.Item onClick={togleModal} id="createNewFolder" href="#/action-1">New</Dropdown.Item>
+            <Dropdown.Item onClick={togleModal} id="createNewFolder">New</Dropdown.Item>
             <Dropdown.Divider />
-            <Dropdown.Item onClick={togleModal} id="renameFolder"  href="#/action-3"><i className="fas fa-edit" style={{marginRight:"9px"}}></i>Rename</Dropdown.Item>
-            <Dropdown.Item onClick={togleModal} id="copyFolder"  href="#/action-3"><i className="fas fa-copy" style={{marginRight:"9px"}}></i>Copy</Dropdown.Item>
-            <Dropdown.Item onClick={togleModal} id="moveFolder"  href="#/action-3"><i className="fas fa-arrows-alt" style={{marginRight:"9px"}}></i>Move</Dropdown.Item>
-            <Dropdown.Item onClick={togleModal} id="deleteFolder" href="#/action-3"><i className="fas fa-trash" style={{marginRight:"9px"}}></i> Delete</Dropdown.Item>
+            <Dropdown.Item onClick={togleModal} id="renameFolder"><i className="fas fa-edit" style={{marginRight:"9px"}}></i>Rename</Dropdown.Item>
+            <Dropdown.Item onClick={togleModal} id="copyFolder"><i className="fas fa-copy" style={{marginRight:"9px"}}></i>Copy</Dropdown.Item>
+            <Dropdown.Item onClick={togleModal} id="moveFolder"><i className="fas fa-arrows-alt" style={{marginRight:"9px"}}></i>Move</Dropdown.Item>
+            <Dropdown.Item onClick={togleModal} id="deleteFolder"><i className="fas fa-trash" style={{marginRight:"9px"}}></i> Delete</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
       </div>
-{isShowing ? <DropDownModal togle={togleModal}  name={props.path_lower} path={props.path_lower}  type={type} /> : null}
+{isShowing ? <DropDownModal  togle={togleModal}  tag={props[".tag"]} name={props.path_lower} path={props.path_lower}  type={type} /> : null}
     </div>
   )
 }
