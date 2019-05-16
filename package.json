@@ -2,7 +2,7 @@
   "name": "grupp",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Flashkeys.github.io/mandatory-advanced-js5/",
+  "homepage": "https://flashkeys.github.io/mandatory-advanced-js5/",
   "dependencies": {
     "@material-ui/core": "^3.9.3",
     "dropbox": "^4.0.17",
