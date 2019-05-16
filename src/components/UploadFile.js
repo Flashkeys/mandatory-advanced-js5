@@ -54,15 +54,15 @@ const UploadFile = (props) => {
     return (
       <>
         <div className={styles.modalHeader}>
-          <span><i className="fas fa-file"></i>     Upload New File</span>
+          <span><i className="fas fa-file"></i>Upload New File</span>
           <button type="button" className={styles.modalCloseButton} data-dismiss="modal" aria-label="Close" onClick={props.togle}>
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div className={styles.modalBody}>
   
-          <input type="file" ref={fileRef} multiple></input>
-          <progress value={progress} max={1} />
+          <input  type="file" ref={fileRef} multiple></input>
+          
         </div>
         <div className={styles.modalFooter}>
           <button type="button" className={styles.cancelButton} data-dismiss="modal" aria-label="Close" onClick={props.togle}  >Cancel</button>

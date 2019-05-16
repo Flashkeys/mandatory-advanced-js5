@@ -5,21 +5,22 @@ import { size } from "./utils";
 import DropDownModal from "./DropDownModal";
 import styles from './css/Card.module.css';
 import { Dropdown } from "react-bootstrap";
-const Card = (props) => {
-  const  [isShowing, updateIsShowing ] = useState(false);
-  const [type, updateType] = useState(""); // => uploadFile
 
-  const togleModal = (e) =>{
+const Card = (props) => {
+  const [isShowing, updateIsShowing] = useState(false);
+  const [type, updateType] = useState(""); // => uploadFile
+  const [starIcon, updateStarIcon] = useState(props.id === localStorage.getItem(props.id));
+
+  const togleModal = (e) => {
     const type = e.target.id; // => "uploadFile"
     const pathh = e.target // => "uploadFile"
     console.log(pathh);
-    
+
     updateIsShowing(!isShowing)
     updateType(type);
     console.log("togle");
-    
   }
-  const [starIcon, updateStarIcon] = useState(props.id === localStorage.getItem(props.id));
+
 
   function downloadFile() {
     props.dbx.filesGetTemporaryLink({ path: props.path_lower })
@@ -110,22 +111,19 @@ const Card = (props) => {
             <i className="fas fa-ellipsis-v"></i>
           </Dropdown.Toggle>
 
-          <Dropdown.Menu>  
+          <Dropdown.Menu>
             <Dropdown.Item onClick={togleModal} id="createNewFolder">New</Dropdown.Item>
             <Dropdown.Divider />
-            <Dropdown.Item onClick={togleModal} id="renameFolder"><i className="fas fa-edit" style={{marginRight:"9px"}}></i>Rename</Dropdown.Item>
-            <Dropdown.Item onClick={togleModal} id="copyFolder"><i className="fas fa-copy" style={{marginRight:"9px"}}></i>Copy</Dropdown.Item>
-            <Dropdown.Item onClick={togleModal} id="moveFolder"><i className="fas fa-arrows-alt" style={{marginRight:"9px"}}></i>Move</Dropdown.Item>
-            <Dropdown.Item onClick={togleModal} id="deleteFolder"><i className="fas fa-trash" style={{marginRight:"9px"}}></i> Delete</Dropdown.Item>
+            <Dropdown.Item onClick={togleModal} id="renameFolder"><i className="fas fa-edit" style={{ marginRight: "9px" }}></i>Rename</Dropdown.Item>
+            <Dropdown.Item onClick={togleModal} id="copyFolder"><i className="fas fa-copy" style={{ marginRight: "9px" }}></i>Copy</Dropdown.Item>
+            <Dropdown.Item onClick={togleModal} id="moveFolder"><i className="fas fa-arrows-alt" style={{ marginRight: "9px" }}></i>Move</Dropdown.Item>
+            <Dropdown.Item onClick={togleModal} id="deleteFolder"><i className="fas fa-trash" style={{ marginRight: "9px" }}></i> Delete</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
       </div>
-{isShowing ? <DropDownModal  togle={togleModal}  tag={props[".tag"]} name={props.path_lower} path={props.path_lower}  type={type} /> : null}
+      {isShowing ? <DropDownModal togle={togleModal} tag={props[".tag"]} name={props.path_lower} path={props.path_lower} type={type} /> : null}
     </div>
   )
 }
 
 export default Card;
-
-//"2019-05-07T08:23:36Z"
-//"YYYY-MM-DD?hh:mm:ss?"
