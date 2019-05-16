@@ -127,6 +127,3 @@ const Card = (props) => {
 }
 
 export default Card;
-
-//"2019-05-07T08:23:36Z"
-//"YYYY-MM-DD?hh:mm:ss?"
