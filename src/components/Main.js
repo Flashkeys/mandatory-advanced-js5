@@ -81,7 +81,7 @@ function Main(match) {
               return (<Link className={styles.bcLink} key={x.path} to={x.path}>{decodeURI(x.name)} <i className="fas fa-chevron-right"></i></Link>)
             })}
           </p>
-          <button onClick={() => updateFavoritesShow(!favoritesShow) }>Favorites</button>
+          <button className="favButton" onClick={() => updateFavoritesShow(!favoritesShow) }>Favorites</button>
           <div className={styles.inputHeader}>
             <div className={styles.inputSearch}>
               <div className={styles.iconSearch}>
