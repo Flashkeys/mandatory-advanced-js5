@@ -52,7 +52,7 @@
   background: rgba(0,0,0,.03);
   border-radius: 10px;
   width: 100px;
-  transition: ease-in-out, width .35s ease-in-out;
+  transition: cubic-bezier(0.68, -0.55, 0.265, 1.55), width .5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   padding: 3px;
   padding-left: 10px;
   color: #5BA8E9;
@@ -82,7 +82,7 @@
 
 
 button {
-  background-color: white;
+  background-color: none;
   border: none;
   color: #5BA8E9;
 }

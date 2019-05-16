@@ -10,9 +10,9 @@ function Main( props ) {
   const entries = props.entries;
   const match = props.match;
   const updateEntries = props.updateEntries;
-  
+  const favoritesShow = props.favoritesShow;
+
   const [filterdEntries, updatefilterdEntries] = useState([]);
-  const [favoritesShow, updateFavoritesShow] = useState(false);
 
   const [searchInput, updateSearchInput] = useState("");
   const dbx = new Dropbox.Dropbox({ accessToken: token$.value });
@@ -84,13 +84,12 @@ function Main( props ) {
               return (<Link className={styles.bcLink} key={x.path} to={x.path}>{decodeURI(x.name)} <i className="fas fa-chevron-right"></i></Link>)
             })}
           </p>
-          <button className="favButton" onClick={() => updateFavoritesShow(!favoritesShow) }>Favorites</button>
           <div className={styles.inputHeader}>
             <div className={styles.inputSearch}>
               <div className={styles.iconSearch}>
                 <i className="icon ion-md-search"></i>
               </div>
-              <input type="text" placeholder="Search..." value={searchInput} onChange={(e) => updateSearchInput(e.target.value)} className={styles.inputSearchInput} />
+              <input type="text" placeholder="Search.." value={searchInput} onChange={(e) => updateSearchInput(e.target.value)} className={styles.inputSearchInput} />
             </div>
           </div>
         </div>

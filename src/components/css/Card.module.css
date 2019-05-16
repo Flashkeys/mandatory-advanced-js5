@@ -22,7 +22,10 @@
 }
 
 .fileName {
-	font-weight: 400;
+  font-weight: 400;
+  word-break: break-word;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .timestamp {
@@ -30,6 +33,7 @@
 }
 
 .link {
+  font-size: 1rem;
 	color: #5BA8E9;
 	text-decoration: none;
 	text-transform: capitalize;
@@ -56,7 +60,8 @@
 .meta {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+  justify-content: space-between;
+  font-size: 0.8rem;
 }
 
 .metadata {

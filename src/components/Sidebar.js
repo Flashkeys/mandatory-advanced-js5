@@ -5,7 +5,10 @@ import logo from "../logo.png";
 import Modal from "./Modal";
 
 const Sidebar = (props) => {
-  const  [isShowing, updateIsShowing ] = useState(false);
+  const favoritesShow = props.favoritesShow;
+  const updateFavoritesShow = props.updateFavoritesShow;
+
+  const [isShowing, updateIsShowing ] = useState(false);
   const [type, updateType] = useState(""); // => uploadFile
 
   const togleModal = (e) =>{
@@ -29,8 +32,9 @@ const Sidebar = (props) => {
           <div className={styles.Links}>
           
             <Link to="/home/" className={styles.link}>Filer (root)</Link>
-            <button  className={styles.openButton} id="createFolder" onClick={togleModal}>Create Folder</button>
-            <button  className={styles.openButton} id="uploadFile" onClick={togleModal}>Upload File</button>
+            <button className={styles.openButton} id="createFolder" onClick={togleModal}>Create Folder</button>
+            <button className={styles.openButton} id="uploadFile" onClick={togleModal}>Upload File</button>
+            <button className={styles.openButton} onClick={() => updateFavoritesShow(!favoritesShow) }>My favorites</button>
           </div>
         </div>
       </div>
