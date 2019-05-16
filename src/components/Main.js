@@ -6,8 +6,11 @@ import styles from "./css/Main.module.css";
 import Dropbox from 'dropbox';
 import Card from "./Card";
 
-function Main(match) {
-  const [entries, updateEntries] = useState([]);
+function Main( props ) {
+  const entries = props.entries;
+  const match = props.match;
+  const updateEntries = props.updateEntries;
+  
   const [filterdEntries, updatefilterdEntries] = useState([]);
   const [favoritesShow, updateFavoritesShow] = useState(false);
 
