@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/mandatory-advanced-js5/static/css/main.103718fa.chunk.css",
-    "main.js": "/mandatory-advanced-js5/static/js/main.d9a52f11.chunk.js",
-    "main.js.map": "/mandatory-advanced-js5/static/js/main.d9a52f11.chunk.js.map",
+    "main.css": "/mandatory-advanced-js5/static/css/main.b47f6acf.chunk.css",
+    "main.js": "/mandatory-advanced-js5/static/js/main.ba60454a.chunk.js",
+    "main.js.map": "/mandatory-advanced-js5/static/js/main.ba60454a.chunk.js.map",
     "runtime~main.js": "/mandatory-advanced-js5/static/js/runtime~main.d0f14806.js",
     "runtime~main.js.map": "/mandatory-advanced-js5/static/js/runtime~main.d0f14806.js.map",
-    "static/js/2.d08a3a84.chunk.js": "/mandatory-advanced-js5/static/js/2.d08a3a84.chunk.js",
-    "static/js/2.d08a3a84.chunk.js.map": "/mandatory-advanced-js5/static/js/2.d08a3a84.chunk.js.map",
+    "static/js/2.e4aaa328.chunk.js": "/mandatory-advanced-js5/static/js/2.e4aaa328.chunk.js",
+    "static/js/2.e4aaa328.chunk.js.map": "/mandatory-advanced-js5/static/js/2.e4aaa328.chunk.js.map",
     "index.html": "/mandatory-advanced-js5/index.html",
-    "precache-manifest.0414d5deca0c59fba4939dbd1a04a552.js": "/mandatory-advanced-js5/precache-manifest.0414d5deca0c59fba4939dbd1a04a552.js",
+    "precache-manifest.d9bb1c409af3df1e19ca7e14e40fa450.js": "/mandatory-advanced-js5/precache-manifest.d9bb1c409af3df1e19ca7e14e40fa450.js",
     "service-worker.js": "/mandatory-advanced-js5/service-worker.js",
-    "static/css/main.103718fa.chunk.css.map": "/mandatory-advanced-js5/static/css/main.103718fa.chunk.css.map",
+    "static/css/main.b47f6acf.chunk.css.map": "/mandatory-advanced-js5/static/css/main.b47f6acf.chunk.css.map",
     "static/media/dropbox-logo.png": "/mandatory-advanced-js5/static/media/dropbox-logo.19daac3e.png",
     "static/media/logo.png": "/mandatory-advanced-js5/static/media/logo.37da5cfd.png"
   }
