@@ -11,7 +11,8 @@ const Card = (props) => {
 
   const togleModal = (e) =>{
     const type = e.target.id; // => "uploadFile"
-    console.log(type);
+    const pathh = e.target // => "uploadFile"
+    console.log(pathh);
     
     updateIsShowing(!isShowing)
     updateType(type);
@@ -122,7 +123,7 @@ const Card = (props) => {
           </Dropdown.Menu>
         </Dropdown>
       </div>
-{isShowing ? <DropDownModal togle={togleModal}  type={type} /> : null}
+{isShowing ? <DropDownModal togle={togleModal}  path={props.path_lower}  type={type} /> : null}
     </div>
   )
 }

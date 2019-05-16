@@ -1,26 +1,28 @@
-import React, { useState, useRef } from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
 import { Dropbox } from 'dropbox';
 import { token$ } from "./store";
 import styles from './css/dropDownModal.module.css';
 const DeleteFolder = (props,e) => {
-  console.log(e.target);
-  const deleteFF = (e) =>{
   
+  const deleteFileFolder = props.path;
+  const deleteFF = (e) =>{
+
    
-  // const option = {
-  //   fetch: fetch,
-  //   accessToken: token$.value
-  // };
+  const option = {
+    fetch: fetch,
+    accessToken: token$.value
+  };
 
-  // const dbx = new Dropbox(
-  //   option,
-  // );
+  const dbx = new Dropbox(
+    option,
+  );
 
-  // dbx.filesDeleteV2({
-  //   path: delFile,
-  // })
-
+  dbx.filesDeleteV2({
+    path:deleteFileFolder,
+  })
+  .then(function (response) {
+    console.log(response);
+  })
  }
      
     return (
