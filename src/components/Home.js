@@ -14,6 +14,7 @@ const Home = ({ match }) => {
   }
   return (
     <div className={styles.homeContainer}>
+      {favoritesShow ? <div className={styles.favoritesNote}>Your favorites</div> : null}
       <Sidebar
         favoritesShow={favoritesShow}
         updateFavoritesShow={updateFavoritesShow}
