@@ -19,6 +19,7 @@
     overflow-x: hidden;
     overflow-y: auto;
     outline: 0;
+    background-color: #0000008c;
   }
   
   .Modal {
@@ -30,6 +31,7 @@
     width: 60%;
     height: 294px;
     top: 167px;
+    
   }
    
   

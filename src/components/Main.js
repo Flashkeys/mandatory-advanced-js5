@@ -3,10 +3,9 @@ import { Link, Redirect } from "react-router-dom";
 import { token$, updateToken } from './store.js';
 import { breadcrumbs, backButton } from "./utils";
 import styles from "./css/Main.module.css";
-import Dropbox from 'dropbox';
 import Card from "./Card";
 
-function Main( props ) {
+function Main(props) {
   const entries = props.entries;
   const match = props.match;
   const updateEntries = props.updateEntries;
@@ -15,7 +14,8 @@ function Main( props ) {
   const [filterdEntries, updatefilterdEntries] = useState([]);
 
   const [searchInput, updateSearchInput] = useState("");
-  const dbx = new Dropbox.Dropbox({ accessToken: token$.value });
+  const dbx = props.dbx;
+  const updateFiles = props.updateFiles;
   const pathName = window.location.pathname;
 
   useEffect(() => {
@@ -41,20 +41,6 @@ function Main( props ) {
     // eslint-disable-next-line
   }, [pathName]);
 
-  function updateFiles(pathName) {
-    if (pathName !== match.url) { // Kollar om sökvägen inte är match.url ("/home/" eller "/home"), dvs att man går djupare
-      const fixedPathName = pathName.substring(5); // substring städar bort "/home" ur URLen
-      dbx.filesListFolder({ path: decodeURI(fixedPathName) })
-        .then((res) => {
-          updateEntries(res.entries);
-        })
-    } else { // Om det är /home eller /home/ så hämtas root här
-      dbx.filesListFolder({ path: "" })
-        .then((res) => {
-          updateEntries(res.entries);
-        })
-    }
-  }
   const logOut = () => {
     updateToken(null);
     updateEntries([]);

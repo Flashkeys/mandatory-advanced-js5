@@ -3,3 +3,17 @@
   overflow-x: hidden;
   display: flex;
 }
+
+.favoritesNote {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  z-index: 1000;
+  padding: 15px 30px;
+  background: rgb(91, 168, 233);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: #f2f2f2;
+  font-size: 1.2rem;
+}

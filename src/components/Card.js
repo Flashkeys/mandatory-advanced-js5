@@ -121,7 +121,7 @@ const Card = (props) => {
           </Dropdown.Menu>
         </Dropdown>
       </div>
-      {isShowing ? <DropDownModal togle={togleModal} tag={props[".tag"]} name={props.path_lower} path={props.path_lower} type={type} /> : null}
+      {isShowing ? <DropDownModal togle={togleModal} tag={props[".tag"]} name={props.path_lower} path={props.path_lower} type={type} updateIsShowing={updateIsShowing}/> : null}
     </div>
   )
 }

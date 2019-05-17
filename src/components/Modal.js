@@ -3,9 +3,11 @@ import styles from './css/modal.module.css';
 import CreateFolder from './CreateFolder';
 import UploadFile from './UploadFile';
 const Modal = (props) => {
+
+  console.log(props.updateFiles);
   return (
     <>
-      <div className={styles.modalOverlay} />
+      {/* <div className={styles.modalOverlay} /> */}
       <div className={styles.modalWrapper} aria-modal aria-hidden tabIndex={-1} role="dialog">
         <div className={styles.Modal}>
           {props.type === "uploadFile" ? <UploadFile {...props} /> : null}
@@ -15,4 +17,5 @@ const Modal = (props) => {
     </>
   )
 }
-export default Modal
+
+export default Modal;
