@@ -6,7 +6,13 @@ const DeleteFolder = (props,e) => {
   
   const deleteFileFolder = props.path;
   const deleteFF = (e) =>{
-
+    
+    let pathName = window.location.pathname;
+    if (pathName.length === 5) {
+      pathName = pathName.substring(5);
+    } else if (pathName.length === 6) {
+      pathName = pathName.substring(6);
+    }
    
   const option = {
     fetch: fetch,
@@ -22,7 +28,7 @@ const DeleteFolder = (props,e) => {
   })
   .then(function (response) {
     console.log(response);
-    window.location.reload();
+    props.updateFiles(pathName);
   })
  }
      

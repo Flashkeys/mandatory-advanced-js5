@@ -40,7 +40,7 @@ const UploadFile = (props) => {
         .then(function (response) {
           updateProgress(0);
           console.log(response);
-          window.location.reload();
+          props.updateFiles(pathName);
         })
         .catch(function (error) {
           updateProgress(0);

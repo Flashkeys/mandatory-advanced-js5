@@ -32,7 +32,7 @@ const CreateFolder = (props) => {
     })
       .then(response => {
         console.log(response);
-        window.location.reload();
+        props.updateFiles(pathName)
       })
 
   }

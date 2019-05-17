@@ -4,8 +4,7 @@ import CreateFolder from './CreateFolder';
 import UploadFile from './UploadFile';
 const Modal = (props) => {
 
-  console.log(props.entries);
-  console.log(props.updateEntries);
+  console.log(props.updateFiles);
   return (
     <>
       <div className={styles.modalOverlay} />
