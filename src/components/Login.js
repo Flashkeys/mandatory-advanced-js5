@@ -21,7 +21,8 @@ const Login = () => {
                         <img src={logo} className={styles.logo} alt="" />
                         <i className="fas fa-bars"></i>
                     </header>
-                    <a className={styles.loginA} href={dbx.getAuthenticationUrl('https://tapplada.netlify.com/auth')}>
+                    <a className={styles.loginA} href={dbx.getAuthenticationUrl('http://localhost:3000/auth')}>
+                    {/* <a className={styles.loginA} href={dbx.getAuthenticationUrl('https://tapplada.netlify.com/auth')}> */}
                         <img src={dropboxLogo} className={styles.dropboxLogo} alt="" />
                         <button className={styles.loginButton}>Connect w/ Dropbox</button>
                     </a>

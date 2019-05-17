@@ -38,7 +38,7 @@ const DeleteFolder = (props,e) => {
         </div>
         <div className={styles.modalFooter}>
           <button type="button" className={styles.cancelButton} data-dismiss="modal" aria-label="Close" onClick={props.togle}  >Cancel</button>
-          <button type="button" className={styles.createButton} onClick={deleteFF}>Delete</button>
+          <button data-dismiss="modal" aria-label="Close" type="button" className={styles.createButton} onClick={deleteFF}>Delete</button>
         </div>
       </>
     )
