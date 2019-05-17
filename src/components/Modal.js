@@ -3,6 +3,9 @@ import styles from './css/modal.module.css';
 import CreateFolder from './CreateFolder';
 import UploadFile from './UploadFile';
 const Modal = (props) => {
+
+  console.log(props.entries);
+  console.log(props.updateEntries);
   return (
     <>
       <div className={styles.modalOverlay} />
@@ -15,4 +18,5 @@ const Modal = (props) => {
     </>
   )
 }
-export default Modal
+
+export default Modal;

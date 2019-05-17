@@ -22,6 +22,7 @@ const DeleteFolder = (props,e) => {
   })
   .then(function (response) {
     console.log(response);
+    window.location.reload();
   })
  }
      
@@ -43,4 +44,4 @@ const DeleteFolder = (props,e) => {
       </>
     )
   }
-  export  default  DeleteFolder;
+export default DeleteFolder;

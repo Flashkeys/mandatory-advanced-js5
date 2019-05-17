@@ -17,6 +17,8 @@ const Home = ({ match }) => {
       <Sidebar
         favoritesShow={favoritesShow}
         updateFavoritesShow={updateFavoritesShow}
+        entries={entries}
+        updateEntries={updateEntries}
       />
       <Main
         match={match}

@@ -43,7 +43,7 @@ const Sidebar = (props) => {
         <progress className={styles.storageProgress} id="file" max="100" value="70"> 70% </progress>
       </div>
       
-   {isShowing ? <Modal togle={togleModal}  type={type} /> : null}
+   {isShowing ? <Modal {...props} togle={togleModal}  type={type} /> : null}
      </div>
   )
 }

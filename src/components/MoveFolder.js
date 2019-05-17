@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
 import { Dropbox } from 'dropbox';
 import { token$ } from "./store";
 import styles from './css/dropDownModal.module.css';
 
 const MoveFolder = (props) => {
+  const [entries, updateEntries] = useState([]);
   const tag = 'props.tag';
   console.log(tag);
 
@@ -17,7 +17,6 @@ const MoveFolder = (props) => {
     option,
   );
   const pathName = window.location.pathname;
-  const [entries, updateEntries] = useState([]);
   console.log(entries[".tag"]);
 
   
