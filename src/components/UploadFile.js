@@ -11,6 +11,7 @@ const UploadFile = (props) => {
   } else if (pathName.length === 6 ) {
     pathName = pathName.substring(6);
   }
+  
   const fileSizeLimit = 150 * 1024 * 1024;
   const fileRef = useRef(null);
   const [progress, updateProgress] = useState(0);

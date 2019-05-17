@@ -34,7 +34,7 @@ const Sidebar = (props) => {
             <Link to="/home/" className={styles.link}>Filer (root)</Link>
             <button className={styles.openButton} id="createFolder" onClick={togleModal}>Create New Folder</button>
             <button className={styles.openButton} onClick={() => updateFavoritesShow(!favoritesShow) }>My Favorites</button>
-            <button style={{marginTop:"auto",    backgroundColor: "#03A9F4",textAlign:" center",color: "white",    padding: "9px 1px",}}className={styles.openButton} id="uploadFile" onClick={togleModal}>Upload File</button>
+            <button style={{ marginTop: "20px", backgroundColor: "#5ba8e9",textAlign:" center",color: "white",    padding: "9px 1px",}}className={styles.openButton} id="uploadFile" onClick={togleModal}>Upload File</button>
           </div>
         </div>
       </div>
